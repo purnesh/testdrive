@@ -11,7 +11,7 @@ class Blog extends CI_Controller{
 		$data['title'] = "My Real Title";
 		$data['heading'] = "My Real Heading";
 
-		$this->load->view('blogview', $data);
+		$this->load->view('test', $data);
 	}
 	
 	public function shoes($sandals, $id){
