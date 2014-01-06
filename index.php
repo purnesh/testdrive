@@ -1,5 +1,9 @@
 <?php
-//test
+<<<<<<< HEAD
+
+=======
+
+>>>>>>> 9ab0c28aea8d14b5e6a6a3b9d585e4bf1acd09f2
 /*
  *---------------------------------------------------------------
  * APPLICATION ENVIRONMENT
@@ -202,4 +206,8 @@ if (defined('ENVIRONMENT'))
 require_once BASEPATH.'core/CodeIgniter.php';
 
 /* End of file index.php */
+<<<<<<< HEAD
 /* Location: ./index.php */
+=======
+/* Location: ./index.php */
+>>>>>>> 9ab0c28aea8d14b5e6a6a3b9d585e4bf1acd09f2

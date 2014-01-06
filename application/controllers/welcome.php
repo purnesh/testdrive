@@ -19,9 +19,19 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+<<<<<<< HEAD
 		$this->load->view('welcome_message');
+=======
+		$data['title'] = "ATCAD - Home";
+		$this->load->view('index_page', $data);
+		$this->load->view('footer');
+>>>>>>> 9ab0c28aea8d14b5e6a6a3b9d585e4bf1acd09f2
 	}
 }
 
 /* End of file welcome.php */
+<<<<<<< HEAD
 /* Location: ./application/controllers/welcome.php */
+=======
+/* Location: ./application/controllers/welcome.php */
+>>>>>>> 9ab0c28aea8d14b5e6a6a3b9d585e4bf1acd09f2

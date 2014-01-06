@@ -293,13 +293,8 @@ $config['global_xss_filtering'] = FALSE;
 | 'csrf_cookie_name' = The cookie name
 | 'csrf_expire' = The number in seconds the token should expire.
 */
-<<<<<<< HEAD
 $config['csrf_protection'] = FALSE;
 $config['csrf_token_name'] = 'csrf_test_name';
-=======
-$config['csrf_protection'] = TRUE;
-$config['csrf_token_name'] = 'purnesh_inc';
->>>>>>> 9ab0c28aea8d14b5e6a6a3b9d585e4bf1acd09f2
 $config['csrf_cookie_name'] = 'csrf_cookie_name';
 $config['csrf_expire'] = 7200;
 
