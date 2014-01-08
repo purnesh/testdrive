@@ -10,7 +10,7 @@
 
     <title><?=$title; ?></title>
 	<?php
-		$this->load->helper('url');
+		
 	?>
     <link href="<?php echo base_url('content/css/bootstrap.min.css'); ?>" rel="stylesheet">
 
@@ -29,7 +29,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">ATCAD</a>
+          <a class="navbar-brand" href="<?php echo base_url(); ?>">ATCAD</a>
         </div>
         <div class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" role="form">
