@@ -12,9 +12,9 @@
 	<?php
 		
 	?>
-    <link href="<?php echo base_url('content/css/style1.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('content/css/bootstrap.min.css'); ?>" rel="stylesheet">
 
-    <link href="<?php echo base_url('content/css/style2.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('content/css/jumbotron.min.css'); ?>" rel="stylesheet">
 
   </head>
 
@@ -35,33 +35,14 @@
 			<?php
 			
 				$attributes = array("class" => "navbar-form navbar-right", "role" => "form");
-				echo form_open('control', $attributes);
+				echo form_open('sender', $attributes);
 			?>
 
             <div class="form-group">
-              <?php
-				$data = array(
-				  'name'        => 'username',
-				  'type' => 'text',
-				  'id'          => 'username',
-				  'placeholder'       => 'Administrator Code',
-				  'class'   => 'form-control',
-				);
-
-				echo form_input($data);
-              ?>
+              <input type="text" placeholder="<?php echo $placeh; ?>" class="form-control">
             </div>
             <div class="form-group">
-              <?php
-				$data = array(
-				  'name'        => 'password',
-				  'type' 		=> 'password',
-				  'placeholder' => 'Password',
-				  'class'   => 'form-control',
-				);
-
-				echo form_input($data);
-              ?>
+              <input type="password" placeholder="Password" class="form-control">
             </div>
             <button type="submit" class="btn btn-success">Sign in</button>
           </form>
