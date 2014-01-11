@@ -14,7 +14,7 @@ class Setup extends CI_Controller{
 	}
 	
 	public function index(){
-		/*
+		
 		$a = $this->db->query('create table user_store(
 			username varchar(20),
 			name varchar(30),
@@ -53,7 +53,7 @@ class Setup extends CI_Controller{
 			KEY last_activity_idx (last_activity)
 		);');
 		echo $a;
-		*/
+		
 		
 	}
 }
