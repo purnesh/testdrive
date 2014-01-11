@@ -34,14 +34,20 @@ if (defined('ENVIRONMENT'))
 	{
 		case 'development':
 			error_reporting(E_ALL);
+			ini_set('display_errors',1);
+			ini_set('display_startup_errors',1);
+			error_reporting(-1);
 		break;
 	
 		case 'testing':
+			ini_set('display_errors',1);
+			ini_set('display_startup_errors',1);
+			error_reporting(-1);
+		break;
 		case 'production':
-			 error_reporting(E_ALL ^ E_NOTICE);
-
-            // Don't display errors (they can still be logged)
-
+			ini_set('display_errors',1);
+			ini_set('display_startup_errors',1);
+			error_reporting(-1);
 		break;
 
 		default:
