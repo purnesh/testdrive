@@ -41,7 +41,7 @@ if (defined('ENVIRONMENT'))
 			 error_reporting(E_ALL ^ E_NOTICE);
 
             // Don't display errors (they can still be logged)
-            ini_set('display_errors', 0);
+
 		break;
 
 		default:
