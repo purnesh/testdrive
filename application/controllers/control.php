@@ -26,7 +26,7 @@ class Control extends CI_Controller{
 					$verifier = array('username' => $_POST['username'], 'password' => $_POST['password']);
 					$results = $this->db->get_where('user_store', $verifier);
 					foreach ($results->result() as $row)
-					{	
+					{
 						if($row){
 							$valid['name'] = $row->name;
 							$valid['access_level'] = $row->access_level;
@@ -35,7 +35,7 @@ class Control extends CI_Controller{
 							$a = $this->session->all_userdata();
 							$this->load->view('c_panel', $a);
 							$gv = 1;
-						}					
+						}
 					}
 						if($gv == 0){
 							$data['error'] = "Incorrect Administrator Code or Password";
@@ -56,6 +56,8 @@ class Control extends CI_Controller{
 	}
 	
 	public function logout(){
+		$valid['logged_in'] = FALSE;
+		$this->session->set_userdata($valid);
 		$this->session->sess_destroy();
 		$data['error'] = "You have been successfully logged out";
 				$this->load->view('signin', $data);

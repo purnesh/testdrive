@@ -19,9 +19,8 @@
   <body>
 		<?php
 			echo br(6);
-			
 		?>
-    <div class="container col-md-4 col-md-offset-4">
+    <div class="container border-black col-md-4 col-md-offset-4" id="signin_border">
 		<?php
 			$attrs = array('class' => 'form-signin', 'role' => 'form');
 			echo form_open('control', $attrs);

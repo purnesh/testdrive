@@ -54,7 +54,16 @@ class Setup extends CI_Controller{
 		);');
 		echo $a;
 		
-*/		
+*/
+	$a = $this->db->query('CREATE TABLE IF NOT EXISTS train_details (
+			train_number int(10) DEFAULT 0 NOT NULL,
+			source varchar(45) DEFAULT "0" NOT NULL,
+			destination varchar(45) NOT NULL,
+			current_status int(10) DEFAULT 0 NOT NULL,
+			user_data text NOT NULL,
+			PRIMARY KEY (session_id),
+			KEY last_activity_idx (last_activity)
+		);');
 	}
 }
 ?>
