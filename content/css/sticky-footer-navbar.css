@@ -1,5 +1,3 @@
-/* Sticky footer styles
--------------------------------------------------- */
 
 html,
 body {
@@ -10,6 +8,10 @@ body {
   height: auto;
   margin: 0 auto -60px;
   padding: 0 0 60px;
+}
+
+.black_text{
+	color:black;
 }
 
 #footer {
@@ -27,6 +29,11 @@ body {
 #footer > .container {
   padding-left: 15px;
   padding-right: 15px;
+}
+
+#floating_right{
+	color:black;
+	float:right;
 }
 
 code {

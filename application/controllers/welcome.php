@@ -8,14 +8,22 @@ class Welcome extends CI_Controller {
             $this->load->helper('url');
 			$this->load->helper('form');
 			$this->load->helper('html');
+			$this->load->library('session');
 		}
 	public function index()
-	{
-		$data['title'] = "ATCAD - Home";
-		$data['placeh'] = "Administrator Code";
-		
-		$this->load->view('index_page', $data);
-		$this->load->view('footer');
+	{	
+		$a = $this->session->all_userdata();
+		if(isset($a['logged_in']) && $a['logged_in']){
+			$this->load->view('index_page2');
+			$this->load->view('footer');
+		}
+		else{
+			$data['title'] = "ATCAD - Home";
+			$data['placeh'] = "Administrator Code";
+			
+			$this->load->view('index_page', $data);
+			$this->load->view('footer');
+		}
 	}
 	
 	public function sender(){

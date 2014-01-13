@@ -3,3 +3,8 @@ body {
   padding-bottom: 20px;
 }
 
+.button-float-right{
+	float:right;
+	width:10em;
+	margin-top:10px;
+}

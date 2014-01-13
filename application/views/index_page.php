@@ -39,28 +39,30 @@
 			?>
 
             <div class="form-group">
-              <?php
-				$data = array(
-				  'name'        => 'username',
-				  'type' => 'text',
-				  'id'          => 'username',
-				  'placeholder'       => 'Administrator Code',
-				  'class'   => 'form-control',
-				);
+				<?php
+					$data = array(
+					  'name'        => 'username',
+					  'type' => 'text',
+					  'id'          => 'username',
+					  'placeholder'       => 'Administrator Code',
+					  'class'   => 'form-control',
+					);
 
-				echo form_input($data);
+					echo form_input($data);
+
               ?>
             </div>
             <div class="form-group">
               <?php
-				$data = array(
-				  'name'        => 'password',
-				  'type' 		=> 'password',
-				  'placeholder' => 'Password',
-				  'class'   => 'form-control',
-				);
+					$data = array(
+					  'name'        => 'password',
+					  'type' 		=> 'password',
+					  'placeholder' => 'Password',
+					  'class'   => 'form-control',
+					);
 
-				echo form_input($data);
+					echo form_input($data);
+				
               ?>
             </div>
             <button type="submit" class="btn btn-success">Sign in</button>

@@ -8,16 +8,15 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
 
-    <title><?=$title; ?></title>
+    <title>ATCAD - Home</title>
 	<?php
 		
 	?>
-    <link href="<?php echo base_url('content/css/bootstrap.min.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('content/css/style1.css'); ?>" rel="stylesheet">
 
-    <link href="<?php echo base_url('content/css/jumbotron.min.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('content/css/style2.css'); ?>" rel="stylesheet">
 
   </head>
-
   <body>
 
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -32,19 +31,8 @@
           <a class="navbar-brand" href="<?php echo base_url(); ?>">ATCAD</a>
         </div>
         <div class="navbar-collapse collapse">
-			<?php
-			
-				$attributes = array("class" => "navbar-form navbar-right", "role" => "form");
-				echo form_open('sender', $attributes);
-			?>
-
-            <div class="form-group">
-              <input type="text" placeholder="<?php echo $placeh; ?>" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
+			<a href="<?php echo base_url('index.php/control/logout');?>"><div class="form-group btn btn-default form-control button-float-right" >Logout</div></a>
+			<a href="<?php echo base_url('index.php/control');?>"><div class="form-group btn btn-default button-float-right form-control" >Control Panel</div></a>
           </form>
         </div>
       </div>

@@ -20,39 +20,20 @@
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
           <div class="navbar-header">
-            <a class="navbar-brand" href="<?php base_url('index.php');?>">ATCAD</a>
+            <a class="navbar-brand" href="<?php echo base_url('index.php');?>">ATCAD</a>
           </div>
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Trains</a></li>
-              <li><a href="#about"><?= $access_level ?></a></li>
+              <li class="active"><a href="<?php echo base_url('index.php/control');?>">Control Panel</a></li>
+              <li><a href="<?php echo base_url('index.php/about');?>">About</a></li>
               <li><a href="<?php echo base_url('/index.php/control/logout');?>">Logout</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li class="dropdown-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </li>
             </ul>
-          </div><!--/.nav-collapse -->
+          </div>
         </div>
       </div>
-
-      <!-- Begin page content -->
       <div class="container">
         <div class="page-header">
-          <h1>Sticky footer with fixed navbar</h1>
-          
-          <?php
-          br(5);
-          br(5);
-          ?>
+          <h2>Trains available</h2>
         </div>
         <p class="lead">Pin a fixed-height footer to the bottom of the 
 viewport in desktop browsers with this custom HTML and CSS. A fixed 
@@ -63,11 +44,15 @@ navbar has been added within <code>#wrap</code> with <code>padding-top: 60px;</c
 
     <div id="footer">
       <div class="container">
-        <p class="text-muted">User currently logged in: <?=$name ?></p>
+        <p class="text-muted">
+			<span>User currently logged in: <span class="black_text"><?=$name ?></span> </span>
+			<span id="floating_right">&copy; A Purnesh Tripathi & Saurabh Verma production</span>
+        </p>
+        
       </div>
     </div>
 
-    <script src="<?php echo base_url('content/js/jquery-1.js'); ?>"</script>
+    <script src="<?php echo base_url('content/js/jquery-1.js'); ?>"></script>
     <script src="<?php echo base_url('content/js/booty.js'); ?>"></script>
   
 
