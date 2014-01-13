@@ -51,6 +51,7 @@
 			echo br(3);
         ?>
         <button class="btn btn-lg btn-primary col-md-4 btn-block" type="submit">Sign in</button>
+        <a href="<?php echo base_url('index.php'); ?>"><span class="btn btn-info col-md-offset-3 col-md-6 padding-top-30">Go to Home Page &raquo;</span></a>
       </form>
 
     </div>

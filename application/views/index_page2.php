@@ -9,9 +9,7 @@
     <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
 
     <title>ATCAD - Home</title>
-	<?php
-		
-	?>
+
     <link href="<?php echo base_url('content/css/style1.css'); ?>" rel="stylesheet">
 
     <link href="<?php echo base_url('content/css/style2.css'); ?>" rel="stylesheet">
@@ -31,8 +29,16 @@
           <a class="navbar-brand" href="<?php echo base_url(); ?>">ATCAD</a>
         </div>
         <div class="navbar-collapse collapse">
-			<a href="<?php echo base_url('index.php/control/logout');?>"><div class="form-group btn btn-default form-control button-float-right" >Logout</div></a>
-			<a href="<?php echo base_url('index.php/control');?>"><div class="form-group btn btn-default button-float-right form-control" >Control Panel</div></a>
+			<a href="<?php echo base_url('index.php/control/logout');?>">
+				<div class="form-group btn btn-default form-control button-float-right">
+					Logout
+				</div>
+			</a>
+			<a href="<?php echo base_url('index.php/control');?>">
+				<div class="form-group btn btn-default button-float-right form-control">
+					Control Panel
+				</div>
+			</a>
           </form>
         </div>
       </div>
@@ -42,7 +48,7 @@
       <div class="container">
         <h1>ATCAD</h1>
         <p>Automatic Ticket Cancellation And confirmation Device (ATCAD) is the next generation 
-        ticket verification and redundancy reduction system for <strong>Indian Railways.</strong> </p>
+        ticket verification and redundancy removal system for <strong>Indian Railways.</strong> </p>
         <p><a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
       </div>
     </div>
@@ -50,19 +56,32 @@
     <div class="container">
       <div class="row">
         <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <h2>Principle</h2>
+          <p>The principle behind this technology is pretty simple. It 
+          works upon justification of physical presence using algorithms 
+          similar to Public/Private key Cryptography. Texas Instruments' 
+          Microcontroller MSP-430 was used for building the device. This
+           device is used to connect to a remote server to authenticate users.</p>
+          <p><a class="btn btn-default" href="#" role="button">Read More &raquo;</a></p>
         </div>
         <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <h2>Working</h2>
+          <p>The device is built with the intention of ensuring physical
+           presence of the authenticated ticket holder in a carraige. If
+            such does not happen the seat should automatically be
+             alotted to the next available passenger with a waiting 
+             ticket on train. The system takes into account number of
+              possible scenarios keeping IR in mind.</p>
+          <p><a class="btn btn-default" href="#" role="button">Read More &raquo;</a></p>
        </div>
         <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <h2>About Us</h2>
+          <p>Purnesh Tripathi and Saurabh Verma are third year students
+           of College of Technology, G.B.P.U.A.&T. Pantnagar. This is
+            the first time that they have collaborated their skills 
+            viz. Information Technology & Electrical Engineering 
+            respectively, to produce a unique product for the Indian Population.</p>
+          <p><a class="btn btn-default" href="#" role="button">Read More &raquo;</a></p>
         </div>
       </div>
 
