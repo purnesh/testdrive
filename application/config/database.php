@@ -1,4 +1,41 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+$active_group = 'default';
+$active_record = TRUE;
+
+$db['default']['hostname'] = 'localhost';
+$db['default']['username'] = 'root';
+$db['default']['password'] = '9897132475';
+$db['default']['database'] = 'atcad_data';
+$db['default']['dbdriver'] = 'mysql';
+$db['default']['dbprefix'] = '';
+$db['default']['pconnect'] = TRUE;
+$db['default']['db_debug'] = TRUE;
+$db['default']['cache_on'] = FALSE;
+$db['default']['cachedir'] = '';
+$db['default']['char_set'] = 'utf8';
+$db['default']['dbcollat'] = 'utf8_general_ci';
+$db['default']['swap_pre'] = '';
+$db['default']['autoinit'] = TRUE;
+$db['default']['stricton'] = FALSE;
+
+$db['client']['hostname'] = 'localhost';
+$db['client']['username'] = 'root';
+$db['client']['password'] = 'Purmesh#1';
+$db['client']['database'] = 'atcad_data';
+$db['client']['dbdriver'] = 'mysql';
+$db['client']['dbprefix'] = '';
+$db['client']['pconnect'] = TRUE;
+$db['client']['db_debug'] = TRUE;
+$db['client']['cache_on'] = FALSE;
+$db['client']['cachedir'] = '';
+$db['client']['char_set'] = 'utf8';
+$db['client']['dbcollat'] = 'utf8_general_ci';
+$db['client']['swap_pre'] = '';
+$db['client']['autoinit'] = TRUE;
+$db['client']['stricton'] = FALSE;
+
+
 /*
 | -------------------------------------------------------------------
 | DATABASE CONNECTIVITY SETTINGS
@@ -44,42 +81,3 @@
 | The $active_record variables lets you determine whether or not to load
 | the active record class
 */
-
-$active_group = 'client';
-$active_record = TRUE;
-
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '9897132475';
-$db['default']['database'] = 'atcad_data';
-$db['default']['dbdriver'] = 'mysql';
-$db['default']['dbprefix'] = '';
-$db['default']['pconnect'] = TRUE;
-$db['default']['db_debug'] = TRUE;
-$db['default']['cache_on'] = FALSE;
-$db['default']['cachedir'] = '';
-$db['default']['char_set'] = 'utf8';
-$db['default']['dbcollat'] = 'utf8_general_ci';
-$db['default']['swap_pre'] = '';
-$db['default']['autoinit'] = TRUE;
-$db['default']['stricton'] = FALSE;
-
-$db['client']['hostname'] = 'localhost';
-$db['client']['username'] = 'root';
-$db['client']['password'] = 'Purmesh#1';
-$db['client']['database'] = 'atcad_data';
-$db['client']['dbdriver'] = 'mysql';
-$db['client']['dbprefix'] = '';
-$db['client']['pconnect'] = TRUE;
-$db['client']['db_debug'] = TRUE;
-$db['client']['cache_on'] = FALSE;
-$db['client']['cachedir'] = '';
-$db['client']['char_set'] = 'utf8';
-$db['client']['dbcollat'] = 'utf8_general_ci';
-$db['client']['swap_pre'] = '';
-$db['client']['autoinit'] = TRUE;
-$db['client']['stricton'] = FALSE;
-
-
-/* End of file database.php */
-/* Location: ./application/config/database.php */
