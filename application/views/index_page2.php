@@ -11,7 +11,7 @@
     <title>ATCAD - Home</title>
 
     <link href="<?php echo base_url('content/css/style1.css'); ?>" rel="stylesheet">
-
+	<link href="<?php echo base_url('content/css/font-awesome.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url('content/css/style2.css'); ?>" rel="stylesheet">
 
   </head>

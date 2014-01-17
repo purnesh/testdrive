@@ -39,16 +39,19 @@ class Control extends CI_Controller{
 					}
 						if($gv == 0){
 							$data['error'] = "Incorrect Administrator Code or Password";
+							$data['signin_title'] = "Incorrect Details";
 							$this->load->view('signin', $data);
 							$gv =1;
 						}
 				}
 				if($gv == 0){
+					$data['signin_title'] = "Invalid Password";
 					$data['error'] = "Please enter a valid password";
 					$this->load->view('signin', $data);
 				}
 			}
 			else{
+				$data['signin_title'] = "Incorrect Details";
 				$data['error'] = "Empty fields are not going to work here";
 				$this->load->view('signin', $data);
 			}
@@ -59,6 +62,7 @@ class Control extends CI_Controller{
 		$valid['logged_in'] = FALSE;
 		$this->session->set_userdata($valid);
 		$this->session->sess_destroy();
+		$data['signin_title'] = "Logout ";
 		$data['error'] = "You have been successfully logged out";
 				$this->load->view('signin', $data);
 	}

@@ -11,7 +11,8 @@
     <title>Control Panel - ATCAD</title>
 
 	<link href="<?php echo base_url('content/css/style.css'); ?>" rel="stylesheet">
-
+	<link href="<?php echo base_url('content/css/style2.css'); ?>" rel="stylesheet">
+	<link href="<?php echo base_url('content/css/font-awesome.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url('content/css/sticky-footer-navbar.css'); ?>" rel="stylesheet">
   </head>
 
@@ -26,11 +27,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="<?php echo base_url('index.php'); ?>">ATCAD</a>
+          <a href="<?php echo base_url('index.php'); ?>"><span class="the-text navbar-brand control"><span class="glyphicon glyphicon-home"></span>ATCAD</span></a>
           </div>
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="<?php echo base_url('index.php/control');?>">Control Panel</a></li>
+              <li class="active"><a href="<?php echo base_url('index.php/control');?>"><i class="fa fa-cog fa-spin"></i>Control Panel</a></li>
               <li><a href="<?php echo base_url('index.php/about');?>">About</a></li>
               <li><a href="<?php echo base_url('/index.php/control/logout');?>">Logout</a></li>
             </ul>
@@ -39,12 +40,11 @@
       </div>
       <div class="container">
         <div class="page-header">
-          <h2>Trains available</h2>
+          <h2><span class="fa fa-th-list"></span>Trains available</h2>
         </div>
-        <p class="lead">Pin a fixed-height footer to the bottom of the 
-viewport in desktop browsers with this custom HTML and CSS. A fixed 
-navbar has been added within <code>#wrap</code> with <code>padding-top: 60px;</code> on the <code>.container</code>.</p>
-        <p>Back to <a href="http://getbootstrap.com/examples/sticky-footer">the default sticky footer</a> minus the navbar.</p>
+        <div class="page_content">
+			This will contain the list of trains available
+        </div>
       </div>
     </div>
 

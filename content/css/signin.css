@@ -1,7 +1,7 @@
 body {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: #eee;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #ffffff;
 }
 
 .border-black{
@@ -10,14 +10,28 @@ body {
 }
 
 .padding-top-30{
-	margin-top:30px;
+	margin-top:10px;
 }
 
 .form-signin {
-  max-width: 330px;
+  max-width: 360px;
   padding: 15px;
   margin: 0 auto;
 }
+
+.btn.btn-sm.btn-danger.error{
+	margin: -.7em 0em 1.8em 0em;
+	
+}
+
+.form-signin-heading.col-md-4.col-md-offset-4.signin_page{
+margin-top:0px;
+}
+
+.fa-stack.fa-lg .fa.fa-user.fa-stack-1x{
+color:#eee;
+}
+
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
   margin-bottom: 10px;
@@ -47,3 +61,4 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+

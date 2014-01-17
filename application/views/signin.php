@@ -8,26 +8,28 @@
     <meta name="author" content="Purnesh Tripathi & Saurabh Verma">
     <link rel="shortcut icon" href="http://getbootstrap.com/docs-assets/ico/favicon.png">
 
-    <title>Incorrect Details</title>
-
+    <title><?=$signin_title ?></title>
+	<link href="<?php echo base_url('content/css/font-awesome.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url('content/css/style.css'); ?>" rel="stylesheet">
-
     <link href="<?php echo base_url('content/css/signin.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('content/css/style2.css'); ?>" rel="stylesheet">
 
   </head>
 
   <body>
-		<?php
-			echo br(6);
-		?>
+		<h2 class="form-signin-heading col-md-4 col-md-offset-4 signin_page">Please sign in</h2>
     <div class="container border-black col-md-4 col-md-offset-4" id="signin_border">
 		<?php
 			$attrs = array('class' => 'form-signin', 'role' => 'form');
 			echo form_open('control', $attrs);
 		?>
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <button type="button" class="btn btn-sm btn-danger"><?=$error; ?></button>
-        <br />
+		<div id="user_icon">
+			<span class="fa-stack fa-lg">
+				<i class="fa fa-circle fa-stack-2x"></i>
+				<i class="fa fa-user fa-stack-1x"></i>
+			</span>
+		</div>
+        
         <?php
         
 			$data1 = array(
@@ -50,7 +52,11 @@
 			echo form_input($data2);
 			echo br(3);
         ?>
+        
+        <button type="button" class="btn btn-sm btn-danger error"><?=$error; ?></button>
+        
         <button class="btn btn-lg btn-primary col-md-4 btn-block" type="submit">Sign in</button>
+        
         <a href="<?php echo base_url('index.php'); ?>"><span class="btn btn-info col-md-offset-3 col-md-6 padding-top-30">Go to Home Page &raquo;</span></a>
       </form>
 
