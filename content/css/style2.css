@@ -4,7 +4,9 @@ body {
   padding-bottom: 20px;
 }
 
-
+.page_content.control_panel{
+	text-align:center;
+}
 
 .button-float-right{
 	float:right;
@@ -46,6 +48,7 @@ body {
 
 .form-group.btn.btn-success.form-control.button-float-right{
 	margin-right:.4em;
+	
 	}
 
 .navbar-nav .active{
@@ -77,8 +80,24 @@ body {
 	color:#ffffff;
 }
 
+.collapse.navbar-collapse .nav.navbar-nav{
+	color:#eee;
+}
+
 .navbar-brand.control :hover{
 	color:#ffffff;
+}
+
+.navbar-brand.control{
+	color:#eee;
+}
+
+.nav.navbar-nav li a{
+	color:#eee;
+}
+
+.nav.navbar-nav{
+	float:right;
 }
 
 .the-text.navbar-brand.control :hover{
@@ -87,6 +106,11 @@ body {
 
 span.the-text.navbar-brand.control:hover{
 	color:#ffffff;
+}
+
+
+span.the-text.navbar-brand.control{
+	color:#eee;
 }
 
 .fa{

@@ -14,6 +14,10 @@
 	<link href="<?php echo base_url('content/css/style2.css'); ?>" rel="stylesheet">
 	<link href="<?php echo base_url('content/css/font-awesome.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url('content/css/sticky-footer-navbar.css'); ?>" rel="stylesheet">
+    <script language="javascript">
+
+
+    </script>
   </head>
 
   <body>
@@ -42,8 +46,8 @@
         <div class="page-header">
           <h2><span class="fa fa-th-list"></span>Trains available</h2>
         </div>
-        <div class="page_content">
-			This will contain the list of trains available
+        <div class="page_content control_panel">
+			<i class="fa fa-refresh fa-spin"></i>Loading...
         </div>
       </div>
     </div>
@@ -60,6 +64,6 @@
 
     <script src="<?php echo base_url('content/js/jquery-1.js'); ?>"></script>
     <script src="<?php echo base_url('content/js/booty.js'); ?>"></script>
-  
+	<script src="<?php echo base_url('content/js/prime_loader.js'); ?>"></script>
 
 </body></html>
