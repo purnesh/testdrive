@@ -1,6 +1,6 @@
 
       <footer>
-        <p>&copy; Purnesh Tripathi & Saurabh Verma 2013</p>
+        <p><span id="footer_center">&copy; Purnesh Tripathi & Saurabh Verma 2013</span></p>
       </footer>
     </div>
 

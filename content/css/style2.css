@@ -9,3 +9,39 @@ body {
 	margin-top:10px;
 }
 
+#footer_center{
+	float:right;
+	text-align:center;
+}
+
+.glyphicon-briefcase.intro-text-blocks{
+	padding-right:1.3em;
+}
+
+.glyphicon-pencil.intro-text-blocks{
+	padding-right:1.3em;
+}
+
+.glyphicon-home{
+	padding-right:1.3em;
+}
+
+.glyphicon-forward{
+	padding-left:.3em;
+}
+
+.glyphicon-list-alt.intro-text-blocks{
+	padding-right:1.3em;
+}
+
+.glyphicon-wrench.button-icon-home{
+	padding-right:1.3em;
+}
+.glyphicon-remove-circle.button-icon-home{
+	padding-right:1.3em;
+}
+
+.form-group.btn.btn-default.form-control.button-float-right{
+	
+	margin-right:.4em;
+	}

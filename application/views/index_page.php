@@ -29,7 +29,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="<?php echo base_url(); ?>">ATCAD</a>
+          <a class="navbar-brand" href="<?php echo base_url(); ?>"><span class="glyphicon glyphicon-home"></span>ATCAD</a>
         </div>
         <div class="navbar-collapse collapse">
 			<?php
@@ -65,7 +65,7 @@
 				
               ?>
             </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
+            <button type="submit" class="btn btn-success">Sign in<span class="glyphicon glyphicon-forward"></span></button>
           </form>
         </div>
       </div>
@@ -82,7 +82,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-4">
-          <h2>Principle</h2>
+          <h2><span class="glyphicon glyphicon-pencil intro-text-blocks"></span>Principle</h2>
           <p>The principle behind this technology is pretty simple. It 
           works upon justification of physical presence using algorithms 
           similar to Public/Private key Cryptography. Texas Instruments' 
@@ -91,7 +91,7 @@
           <p><a class="btn btn-default" href="#" role="button">Read More &raquo;</a></p>
         </div>
         <div class="col-md-4">
-          <h2>Working</h2>
+          <h2><span class="glyphicon glyphicon-briefcase intro-text-blocks"></span>Working</h2>
           <p>The device is built with the intention of ensuring physical
            presence of the authenticated ticket holder in a carraige. If
             such does not happen the seat should automatically be
@@ -101,7 +101,7 @@
           <p><a class="btn btn-default" href="#" role="button">Read More &raquo;</a></p>
        </div>
         <div class="col-md-4">
-          <h2>About Us</h2>
+          <h2><span class="glyphicon glyphicon-list-alt intro-text-blocks"></span>About Us</h2>
           <p>Purnesh Tripathi and Saurabh Verma are third year students
            of College of Technology, G.B.P.U.A.&T. Pantnagar. This is
             the first time that they have collaborated their skills 
