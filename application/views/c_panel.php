@@ -31,9 +31,9 @@
           </div>
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="<?php echo base_url('index.php/control');?>"><i class="fa fa-cog fa-spin"></i>Control Panel</a></li>
-              <li><a href="<?php echo base_url('index.php/about');?>">About</a></li>
-              <li><a href="<?php echo base_url('/index.php/control/logout');?>">Logout</a></li>
+              <li class="active"><a href="<?php echo base_url('index.php/control');?>"><i class="fa fa-gear fa-spin"></i>Control Panel</a></li>
+              <li><a href="<?php echo base_url('index.php/about');?>"><i class="fa fa-info-circle"></i>About</a></li>
+              <li><a href="<?php echo base_url('/index.php/control/logout');?>"><span class="glyphicon glyphicon-remove-circle button-icon-home"></span>Logout</a></li>
             </ul>
           </div>
         </div>

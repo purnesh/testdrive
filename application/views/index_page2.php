@@ -30,12 +30,12 @@
         </div>
         <div class="navbar-collapse collapse">
 			<a href="<?php echo base_url('index.php/control/logout');?>">
-				<div class="form-group btn btn-default form-control button-float-right" id="button_nav_home_logout">
+				<div class="form-group btn btn-danger form-control button-float-right" id="button_nav_home_logout">
 					<span class="glyphicon glyphicon-remove-circle button-icon-home"></span>Logout
 				</div>
 			</a>
 			<a href="<?php echo base_url('index.php/control');?>">
-				<div class="form-group btn btn-default button-float-right form-control" id="button_nav_home_control_panel">
+				<div class="form-group btn btn-success button-float-right form-control" id="button_nav_home_control_panel">
 					<span class="glyphicon glyphicon-wrench button-icon-home"></span>Control Panel
 				</div>
 			</a>
