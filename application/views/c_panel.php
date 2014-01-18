@@ -14,7 +14,14 @@
 	<link href="<?php echo base_url('content/css/style2.css'); ?>" rel="stylesheet">
 	<link href="<?php echo base_url('content/css/font-awesome.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url('content/css/sticky-footer-navbar.css'); ?>" rel="stylesheet">
+    <script src="<?php echo base_url('content/js/jquery-1.js'); ?>"></script>
+    <script src="<?php echo base_url('content/js/booty.js'); ?>"></script>
     <script language="javascript">
+		$(document).ready(function(){
+		$.post("<?php echo base_url('index.php/pchandler/get_trains'); ?>", {'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'}, function(result){
+			$("#current_data").html(result);
+		});
+	});
 
 
     </script>
@@ -45,8 +52,14 @@
       <div class="container">
         <div class="page-header">
           <h2><span class="fa fa-th-list"></span>Trains available</h2>
+          <?php
+				$attributes = array("class" => "navbar-form navbar-right", "role" => "form");
+				echo form_open('control', $attributes);
+          ?>
+          </form>
         </div>
-        <div class="page_content control_panel">
+        <div class="breadcrumb_trail">asd</div>
+        <div class="page_content control_panel" id="current_data">
 			<i class="fa fa-refresh fa-spin"></i>Loading...
         </div>
       </div>
@@ -62,8 +75,7 @@
       </div>
     </div>
 
-    <script src="<?php echo base_url('content/js/jquery-1.js'); ?>"></script>
-    <script src="<?php echo base_url('content/js/booty.js'); ?>"></script>
-	<script src="<?php echo base_url('content/js/prime_loader.js'); ?>"></script>
 
-</body></html>
+</body>
+
+</html>

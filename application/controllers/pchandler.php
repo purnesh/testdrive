@@ -27,20 +27,16 @@ class Pchandler extends CI_Controller{
 	
 	public function get_trains(){
 		if($this->logged_in){
-			echo "Purnesh";
+			echo "train details here";
 		}
 		else{
-			echo "You're not logged in!";
+			echo "You're no logged in!";
 		}
 	}
 	
 	public function train_no($train_no){
-		if($this->logged_in){
-			echo ' r';
-		}
-		else{
-			echo "You're not logged in!";
-		}		
+		echo $train_no;
 	}
 }
 ?>
+
