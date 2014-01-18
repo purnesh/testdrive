@@ -54,7 +54,7 @@ class Setup extends CI_Controller{
 		);');
 		echo $a;
 		
-*/
+
 	$a = $this->db->query('CREATE TABLE IF NOT EXISTS train_details (
 			train_number int(10),
 			train_name varchar(30) DEFAULT "1" NOT NULL,
@@ -65,6 +65,20 @@ class Setup extends CI_Controller{
 			train_active int(1) DEFAULT "1",
 			PRIMARY KEY (train_number)
 		);');
+	
+	echo $a;
+	*/
+	$a = $this->db->query('insert into train_details values(
+			42073,
+			"Rajdhani Express",
+			"NDLS",
+			"KKR",
+			"23:30",
+			"05:30",
+			1
+		);');
+		echo $a;
 	}
+	
 }
 ?>
