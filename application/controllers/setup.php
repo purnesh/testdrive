@@ -84,6 +84,18 @@ class Setup extends CI_Controller{
 	$a = $this->db->insert('train_details', $data);
 	echo $a;
 	}
+
+	
+	function train_details_updater($train_number, $attribute, $value){
+		if($attribute == 'train_active' || $attribute == 'train_number'){
+			$a = $this->db->query("update train_details set $attribute = $value where train_number = $train_number");
+		}
+		else{
+			$a = $this->db->query("update train_details set $attribute = '$value' where train_number = $train_number");
+		}
+		echo $a;
+	}
+	
 	
 }
 ?>

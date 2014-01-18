@@ -28,12 +28,8 @@ class Pchandler extends CI_Controller{
 	
 	public function get_trains(){
 		if($this->logged_in){
-			$a = $this->atcad_train->get_list();
-			foreach ($a->result() as $row)
-			{
-				echo $row->train_number;
-			}
-			//$this->load->view('train_list');
+			$data['a'] = $this->atcad_train->get_list();
+			$this->load->view('train_list', $data);
 		}
 		else{
 			$data['signin_title'] = "Sign in - ATCAD";
