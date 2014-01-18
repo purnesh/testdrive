@@ -7,6 +7,7 @@ class Pchandler extends CI_Controller{
 		$this->load->helper('form');
 		$this->load->helper('html');
 		$this->load->library('session');
+		$this->load->model('atcad_train');
 		$this->load->database();
 		$a = $this->session->all_userdata();
 		if(isset($a['logged_in']) && isset($a['logged_in'])){
@@ -27,15 +28,18 @@ class Pchandler extends CI_Controller{
 	
 	public function get_trains(){
 		if($this->logged_in){
-			echo "train details here";
+			$a['data'] = $this->atcad_train->get_list();
+			$this->load->view('train_list', $a);
 		}
 		else{
-			echo "You're no logged in!";
+			$data['signin_title'] = "Sign in - ATCAD";
+			$data['error'] = "You have been logged out!";
+			$this->load->view('signin', $data);
 		}
 	}
 	
 	public function train_no($train_no){
-		echo $train_no;
+		echo "$train_no";
 	}
 }
 ?>

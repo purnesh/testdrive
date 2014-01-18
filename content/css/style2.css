@@ -8,6 +8,29 @@ body {
 	text-align:center;
 }
 
+.reder{
+	color: red;
+}
+
+.train-record.col-md-12.heading{
+	background-color:rgb(51,51,51);
+	color:#eee;
+	border-radius:6px;
+	
+}
+
+.train-record,.train-record-details{
+	float:left;
+}
+
+.list-of-trains.col-md-8{
+	border:2px solid;
+}
+
+.side-bar.col-md-3{
+	border:2px solid;
+}
+
 .button-float-right{
 	float:right;
 	width:10em;
@@ -21,6 +44,17 @@ body {
 
 .glyphicon-briefcase.intro-text-blocks{
 	padding-right:1.3em;
+}
+
+.fa.fa-circle.active.train-indicator{
+	color:#00933B;
+	float:left;
+	
+}
+
+.fa.fa-circle.inactive.train-indicator{
+	color:#F90101;
+	float:left;
 }
 
 .glyphicon-pencil.intro-text-blocks{
@@ -42,14 +76,17 @@ body {
 .glyphicon-wrench.button-icon-home{
 	padding-right:1.3em;
 }
+
 .glyphicon-remove-circle.button-icon-home{
 	padding-right:1.3em;
 }
 
 .form-group.btn.btn-success.form-control.button-float-right{
 	margin-right:.4em;
-	
-	}
+	background-color:#00933B;
+	border:1px #00933B;
+}
+
 
 .navbar-nav .active{
 	font-weight:bold;

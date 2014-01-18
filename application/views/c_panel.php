@@ -18,12 +18,18 @@
     <script src="<?php echo base_url('content/js/booty.js'); ?>"></script>
     <script language="javascript">
 		$(document).ready(function(){
-		$.post("<?php echo base_url('index.php/pchandler/get_trains'); ?>", {'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'}, function(result){
-			$("#current_data").html(result);
+			$.post("<?php echo base_url('index.php/pchandler/get_trains'); ?>", {'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'}, function(result){
+				$("#current_data").html(result);
+			});
+			
+			$(document).on('click', '.train-record.col-md-12', function(){
+				var train_no_to_enquire = $(this).children().first().html();
+				var train_no_url = "<?php echo base_url('index.php/pchandler/train_no'); ?>" + "/" + train_no_to_enquire;
+				$.post(train_no_url, {'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'}, function(result){
+					$("#data-collector").html(result);
+				});
+			});
 		});
-	});
-
-
     </script>
   </head>
 
@@ -57,10 +63,12 @@
 				echo form_open('control', $attributes);
           ?>
           </form>
+        <div class="breadcrumb-trail"></div>
         </div>
-        <div class="breadcrumb_trail">asd</div>
+        
         <div class="page_content control_panel" id="current_data">
 			<i class="fa fa-refresh fa-spin"></i>Loading...
+			<div class="train-record col-md-12"></div>
         </div>
       </div>
     </div>

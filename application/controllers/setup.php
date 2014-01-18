@@ -56,13 +56,14 @@ class Setup extends CI_Controller{
 		
 */
 	$a = $this->db->query('CREATE TABLE IF NOT EXISTS train_details (
-			train_number int(10) DEFAULT 0 NOT NULL,
-			source varchar(45) DEFAULT "0" NOT NULL,
-			destination varchar(45) NOT NULL,
-			current_status int(10) DEFAULT 0 NOT NULL,
-			user_data text NOT NULL,
-			PRIMARY KEY (session_id),
-			KEY last_activity_idx (last_activity)
+			train_number int(10),
+			train_name varchar(30) DEFAULT "1" NOT NULL,
+			train_from varchar(5) DEFAULT "1" NOT NULL,
+			train_to varchar(5) DEFAULT "1" NOT NULL,
+			train_start_time varchar(6) DEFAULT "0" NOT NULL,
+			train_destination_time varchar(6) DEFAULT "0" NOT NULL,
+			train_active int(1) DEFAULT "1",
+			PRIMARY KEY (train_number)
 		);');
 	}
 }
