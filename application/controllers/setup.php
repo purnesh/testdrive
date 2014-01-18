@@ -67,17 +67,22 @@ class Setup extends CI_Controller{
 		);');
 	
 	echo $a;
-	*/
-	$a = $this->db->query('insert into train_details values(
-			42073,
-			"Rajdhani Express",
-			"NDLS",
-			"KKR",
-			"23:30",
-			"05:30",
-			1
-		);');
-		echo $a;
+	*/ 	
+	}
+	
+	function train_details_inserter($tno, $tname, $tfro, $tto, $tst, $tdt, $ta){
+		$data = array(
+				   'train_number' => $tno,
+				   'train_name' => $tname,
+				   'train_from' => $tfro,
+				   'train_to' => $tto,
+				   'train_start_time' => $tst,
+				   'train_destination_time' => $tdt,
+				   'train_active' => $ta
+				);
+
+	$a = $this->db->insert('train_details', $data);
+	echo $a;
 	}
 	
 }

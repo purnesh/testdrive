@@ -14,11 +14,11 @@ class Atcad_train extends CI_Model{
 			$this->load->helper('form');
 			$this->load->helper('html');
 			$this->load->library('session');
-			$this->load->database();		
+			$this->load->database();
 	}
 	
 	function get_list(){
-		$query = $this->db->get('trains', 5);
+		$query = $this->db->get('train_details');
 		return $query;
 	}
 	
