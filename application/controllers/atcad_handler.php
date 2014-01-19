@@ -31,8 +31,8 @@ class Atcad_handler extends CI_Controller{
 		}
 	}
 	
-	public function pnr_code_verifier(){
-		
+	public function pnr_code_verifier($pnr_code){
+		echo "reder";
 	}
 }
 ?>
