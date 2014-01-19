@@ -30,6 +30,7 @@ class Atcad_handler extends CI_Controller{
 			echo "Maa Chuda";
 		}
 	}
+	//http://ti-atcad.com/index.php/atcad_handler/login/DMY_000/123456
 	
 	public function pnr_code_verifier($pnr_code){
 		if($pnr_code){
