@@ -22,11 +22,17 @@ class Atcad_handler extends CI_Controller{
 	
 	public function login($dc, $tc){
 		if($this->atcad_device->authenticate_device($dc, $tc)){
+			$this->logged_in = TRUE;
 			$this->load->view('xsrf_tokenizer');
 		}
 		else{
+			$this->logged_in = FALSE;
 			echo "Maa Chuda";
 		}
+	}
+	
+	public function pnr_code_verifier(){
+		
 	}
 }
 ?>
