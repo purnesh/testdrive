@@ -59,6 +59,10 @@ class Pchandler extends CI_Controller{
 			$this->load->view('signin', $data);
 		}
 	}
+	
+	public function get_ttedetails($ttecode){
+		echo "$ttecode";
+	}
 }
 ?>
 

@@ -46,11 +46,14 @@
 			});
 			
 			$(document).on('click', '.coach-tte.aec-record-details', function(){
-				$(this).hide();
-				$.post("<?php echo base_url('index.php/pchandler/get_trains'); ?>", {'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'}, function(result){
+				var ttecode_to_enquire = $(this).html();
+				var tte_url = "<?php echo base_url('index.php/pchandler/get_ttedetails/'); ?>" + "/" + ttecode_to_enquire;
+				$.post(tte_url, {'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'}, function(result){
 					$("#current_data").html(result);
 				});
 			});
+			
+			
 		});
     </script>
   </head>

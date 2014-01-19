@@ -23,14 +23,14 @@
 foreach ($a->result() as $row)
 	{
 ?>
-<div class="aec-record col-md-12">
-		<div class="col-xs-3 col-md-2 coach-number aec-record-details "><?php echo $row->coach_number; ?></div>
-		<div class="col-xs-2 col-md-4 coach-class aec-record-details "><?php echo $row->coach_class; ?></div>
-		<div class="col-xs-2 col-md-2 coach-name aec-record-details "><?php echo $row->coach_name; ?></div>
-		<div class="col-xs-2 col-md-2 coach-tte aec-record-details "><?php echo $row->coach_tte; ?></div>
-		<div class="col-xs-3 col-md-1 coach-device aec-record-details "><?php echo $row->coach_device; ?></div>
+	<div class="aec-record col-md-12">
+		<div class="col-xs-3 col-md-2 coach-number aec-record-details"><?php echo $row->coach_number; ?></div>
+		<div class="col-xs-2 col-md-4 coach-class aec-record-details"><?php echo $row->coach_class; ?></div>
+		<div class="col-xs-2 col-md-2 coach-name aec-record-details"><?php echo $row->coach_name; ?></div>
+		<div class="col-xs-2 col-md-2 coach-tte aec-record-details"><?php echo $row->coach_tte; ?></div>
+		<div class="col-xs-3 col-md-1 coach-device aec-record-details"><?php echo $row->coach_device; ?></div>
 	</div>
-</div>
+
 <?php
 		}
 ?>

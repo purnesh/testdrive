@@ -100,7 +100,7 @@ class Setup extends CI_Controller{
 		echo $a;
 	}
 	
-	function create_table_for_train($tno){
+	function coach_details_inserter($tno, $cno, $ccls, $cname, $ctte, $cd){
 		$tname = $tno."_aec";
 		$a = $this->db->query('CREATE TABLE IF NOT EXISTS '.$tname.' (
 			coach_number int(10) PRIMARY KEY,
@@ -111,11 +111,11 @@ class Setup extends CI_Controller{
 		);');
 	
 		echo $a;
-		if($a){$data = array('coach_number' => 1,
-					'coach_class' => 'Engine',
-					'coach_name' => 'TE01',
-					'coach_tte' =>1345,
-					'coach_device' => "MSTR_$tno");
+		if($a){$data = array('coach_number' => $cno,
+					'coach_class' => $ccls,
+					'coach_name' => $cname,
+					'coach_tte' =>$ctte,
+					'coach_device' => $cd);
 				$a = $this->db->insert($tname, $data);
 			}
 	}
@@ -124,6 +124,43 @@ class Setup extends CI_Controller{
 		$tname = $tno."_aec";
 		$a = $this->db->get($tname);
 		var_dump($a);
+	}
+	
+	public function atcad_device_inserter($dno, $dtte){
+		$dname = "atcad_devices";
+		$a = $this->db->query('CREATE TABLE IF NOT EXISTS '.$dname.' (
+			device_number varchar(20) PRIMARY KEY,
+			device_tte varchar(20) DEFAULT "000" 
+		);');
+		
+		echo $a;
+		if($a){$data = array('device_number' => $dno,
+							'device_tte' => $dtte);
+			$a = $this->db->insert($dname, $data);
+		}
+	}
+	
+	public function tte_details_inserter($ttno, $dtte, $ttname){
+		$dname = "tte_details";
+		$a = $this->db->query('CREATE TABLE IF NOT EXISTS '.$dname.' (
+			tte_code varchar(20) PRIMARY KEY,
+			device_alotted varchar(20) DEFAULT "DMY_000",
+			tte_name varchar(20) DEFAULT "NO_NAME",
+			FOREIGN KEY (device_alotted) REFERENCES atcad_devices(device_number)
+		);');
+		
+		echo $a;
+		if($a){$data = array('tte_code' => $ttno,
+							'device_alotted' => $dtte,
+							'tte_name' => $ttname
+							);
+			$a = $this->db->insert($dname, $data);
+		}
+	}
+	
+	function device_details_updater($device_number, $tted){
+		$a = $this->db->query("update atcad_devices set device_tte = $tted where device_number = $device_number");
+		echo $a;
 	}
 }
 ?>
