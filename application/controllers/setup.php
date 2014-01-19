@@ -119,6 +119,7 @@ class Setup extends CI_Controller{
 				$a = $this->db->insert($tname, $data);
 			}
 	}
+	//http://localhost/testdrive/index.php/setup/coach_details_inserter/32072/23568/Chair-Car/CC1/234568/SLVE-2536
 	
 	function train_details_selector($tno){
 		$tname = $tno."_aec";
@@ -139,6 +140,8 @@ class Setup extends CI_Controller{
 			$a = $this->db->insert($dname, $data);
 		}
 	}
+	//ti-atcad.com/index.php/setup/atcad_device_inserter/SLVE_9856/385962457859
+	
 	
 	public function tte_details_inserter($ttno, $dtte, $ttname){
 		$dname = "tte_details";
@@ -157,6 +160,7 @@ class Setup extends CI_Controller{
 			$a = $this->db->insert($dname, $data);
 		}
 	}
+	//http://ti-atcad.com/index.php/setup/tte_details_inserter/385962457859/DMY_000/Saurabh_Verma
 	
 	function device_details_updater($device_number, $tted){
 		$a = $this->db->query("update atcad_devices set device_tte = $tted where device_number = $device_number");

@@ -9,6 +9,8 @@
 			$this->load->database();
 		}
 		
-		
+		public function confirm_pnr($pnr_code){
+			
+		}
 	}
 ?>
