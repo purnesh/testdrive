@@ -1,12 +1,5 @@
 <?php
 class Atcad_train extends CI_Model{
-	var $train_number;
-	var $train_name;
-	var $train_active;
-	var $train_from;
-	var $train_to;
-	var $train_start_time;
-	var $train_destination_time;
 	
 	function __construct(){
 		parent::__construct();
@@ -22,8 +15,19 @@ class Atcad_train extends CI_Model{
 		return $query;
 	}
 	
-	function insert_entry(){
-		
+	function insert($tno, $tname, $tfro, $tto, $tst, $tdt, $ta){
+		$data = array(
+		   'train_number' => $tno,
+		   'train_name' => $tname,
+		   'train_from' => $tfro,
+		   'train_to' => $tto,
+		   'train_start_time' => $tst,
+		   'train_destination_time' => $tdt,
+		   'train_active' => $ta
+		);
+
+		$a = $this->db->insert('train_details', $data);
+		echo $a;
 	}
 }
 ?>

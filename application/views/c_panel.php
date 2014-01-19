@@ -24,9 +24,31 @@
 			
 			$(document).on('click', '.train-record.col-md-12', function(){
 				var train_no_to_enquire = $(this).children().first().html();
-				var train_no_url = "<?php echo base_url('index.php/pchandler/train_no'); ?>" + "/" + train_no_to_enquire;
+				var train_no_url = "<?php echo base_url('index.php/pchandler/train_details'); ?>" + "/" + train_no_to_enquire;
 				$.post(train_no_url, {'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'}, function(result){
+					$("#current_data").html(result);
+				});
+			});
+			
+			$(document).on('click', '.trains-list.breadcrumb-trail', function(){
+				$(this).hide();
+				$.post("<?php echo base_url('index.php/pchandler/get_trains'); ?>", {'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'}, function(result){
+					$("#current_data").html(result);
+				});
+			});
+			
+			$(document).on('click', '.home.breadcrumb-trail', function(){
+				$(this).hide();
+				var home_panel_url = "<?php echo base_url('index.php/pchandler/home_panel'); ?>";
+				$.post(home_panel_url, {'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'}, function(result){
 					$("#data-collector").html(result);
+				});
+			});
+			
+			$(document).on('click', '.coach-tte.aec-record-details', function(){
+				$(this).hide();
+				$.post("<?php echo base_url('index.php/pchandler/get_trains'); ?>", {'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'}, function(result){
+					$("#current_data").html(result);
 				});
 			});
 		});
@@ -56,16 +78,6 @@
         </div>
       </div>
       <div class="container">
-        <div class="page-header">
-          <h2><span class="fa fa-th-list"></span>Trains available</h2>
-          <?php
-				$attributes = array("class" => "navbar-form navbar-right", "role" => "form");
-				echo form_open('control', $attributes);
-          ?>
-          </form>
-        <div class="breadcrumb-trail"></div>
-        </div>
-        
         <div class="page_content control_panel" id="current_data">
 			<i class="fa fa-refresh fa-spin"></i>Loading...
 			<div class="train-record col-md-12"></div>

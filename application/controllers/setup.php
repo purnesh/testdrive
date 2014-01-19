@@ -72,19 +72,23 @@ class Setup extends CI_Controller{
 	
 	function train_details_inserter($tno, $tname, $tfro, $tto, $tst, $tdt, $ta){
 		$data = array(
-				   'train_number' => $tno,
-				   'train_name' => $tname,
-				   'train_from' => $tfro,
-				   'train_to' => $tto,
-				   'train_start_time' => $tst,
-				   'train_destination_time' => $tdt,
-				   'train_active' => $ta
-				);
-
-	$a = $this->db->insert('train_details', $data);
-	echo $a;
+		   'train_number' => $tno,
+		   'train_name' => $tname,
+		   'train_from' => $tfro,
+		   'train_to' => $tto,
+		   'train_start_time' => $tst,
+		   'train_destination_time' => $tdt,
+		   'train_active' => $ta
+		);
+		$a = $this->db->insert('train_details', $data);
+		$this->create_table_for_train($tno);
+		echo $a;
 	}
-
+	
+	function train_list_selector(){
+		$a = $this->db->get('train_details');
+		var_dump($a);
+	}
 	
 	function train_details_updater($train_number, $attribute, $value){
 		if($attribute == 'train_active' || $attribute == 'train_number'){
@@ -96,6 +100,30 @@ class Setup extends CI_Controller{
 		echo $a;
 	}
 	
+	function create_table_for_train($tno){
+		$tname = $tno."_aec";
+		$a = $this->db->query('CREATE TABLE IF NOT EXISTS '.$tname.' (
+			coach_number int(10) PRIMARY KEY,
+			coach_class varchar(20) DEFAULT "1" NOT NULL,
+			coach_name varchar(5) DEFAULT "1" NOT NULL,
+			coach_tte int(20) DEFAULT 0 NOT NULL,
+			coach_device varchar(30) DEFAULT "0" NOT NULL
+		);');
 	
+		echo $a;
+		if($a){$data = array('coach_number' => 1,
+					'coach_class' => 'Engine',
+					'coach_name' => 'TE01',
+					'coach_tte' =>1345,
+					'coach_device' => "MSTR_$tno");
+				$a = $this->db->insert($tname, $data);
+			}
+	}
+	
+	function train_details_selector($tno){
+		$tname = $tno."_aec";
+		$a = $this->db->get($tname);
+		var_dump($a);
+	}
 }
 ?>

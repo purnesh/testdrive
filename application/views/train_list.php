@@ -1,3 +1,19 @@
+<div class="page-header col-md-12 col-xs-12">
+	<h2><?=$header?></h2>
+
+	<div class="breadcrumb-trail-container">
+		<?php
+			echo "<strong>";
+			echo "<div class='home breadcrumb-trail'>Home</div>";
+			foreach($the_trail as $key => $value){
+				echo "<i class='fa fa-angle-double-right'></i> <div class='$key'>$value</div>";
+			}
+			echo "</strong>";
+		?>
+	</div>
+ </div>
+        
+
 <div class="col-md-8" id="data-collector">
 	<div class="train-record col-md-12 heading">
 		<div class="col-xs-2 col-md-2 train-number train-record-details heading"><strong>Train No.</strong></div>

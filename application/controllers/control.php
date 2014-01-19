@@ -33,7 +33,7 @@ class Control extends CI_Controller{
 							$valid['logged_in'] = TRUE;
 							$this->session->set_userdata($valid);
 							$a = $this->session->all_userdata();
-							$this->load->view('c_panel', $a);
+							$this->load->view('c_panel_adapter', $a);
 							$gv = 1;
 						}
 					}
