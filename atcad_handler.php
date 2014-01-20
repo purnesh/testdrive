@@ -35,8 +35,9 @@
 		public function assignment($a, $b){
 			$res = mysql_query("select * from atcad_devices where device_number='$a' AND device_tte='$b'");
 			for($row = mysql_fetch_array($res)){
+				var_dump($row);
 				if($row['device_train'] == 42073 && $row['device_coach_name']=="EE1"){
-					echo "Holiday";
+					echo "#Holiday*$";
 				}
 				else{
 					echo '#'.$row['device_train'].'*';
@@ -100,13 +101,9 @@
 		echo "Unauthorized access";
 	}
 ?>
-<?php
-/*
 <form method='post' action='atcad_handler.php'>
 	<input type='text' name='request_category' />
 	<input type='text' name='device_number' />
 	<input type='text' name='device_tte' />
 	<input type='submit' />
 </form>
-*/
-?>
