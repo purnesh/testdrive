@@ -23,10 +23,11 @@ class Atcad_handler extends CI_Controller{
 	public function login($dc, $tc){
 		if($this->atcad_device->authenticate_device($dc, $tc)){
 			$this->logged_in = TRUE;
+			$valid['logged_in'] = $this->logged_in;
+			$this->session->set_userdata($valid);
 			$a = $this->session->all_userdata();
 			var_dump($a);
 			$this->load->view('xsrf_tokenizer');
-			
 		}
 		else{
 			$this->logged_in = FALSE;
@@ -36,8 +37,11 @@ class Atcad_handler extends CI_Controller{
 	//http://ti-atcad.com/index.php/atcad_handler/login/DMY_000/123456
 	
 	public function pnr_code_verifier($pnr_code){
-		if($pnr_code){
-			echo "reder";
+		$a = $this->session->all_userdata();
+		if($a['logged_in']){
+			if($pnr_code){
+				echo "reder";
+			}
 		}
 	}
 }

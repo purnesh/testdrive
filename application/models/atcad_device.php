@@ -6,7 +6,7 @@
 			$this->load->helper('form');
 			$this->load->helper('html');
 			$this->load->library('session');
-			$this->load->database();
+			$this->load->database();				
 		}
 	
 		public function verify_device_code(){
