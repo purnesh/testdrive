@@ -50,7 +50,7 @@
 	}
 	
 	if(isset($_POST['request_category'])){
-		 $handle = new atcad_handler;
+		$handle = new atcad_handler;
 		switch ($_POST['request_category']){
 			case 'device_verification':
 				if($handle->device_verification($_POST['device_number'], $_POST['device_tte'])){
@@ -92,10 +92,13 @@
 		echo "Unauthorized access";
 	}
 ?>
-
+<?php
+/*
 <form method='post' action='atcad_handler.php'>
 	<input type='text' name='request_category' />
 	<input type='text' name='device_number' />
 	<input type='text' name='device_tte' />
 	<input type='submit' />
 </form>
+*/
+?>
