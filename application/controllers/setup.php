@@ -172,21 +172,27 @@ class Setup extends CI_Controller{
 		var_dump($a);
 	}
 	
-	public function atcad_device_inserter($dno, $dtte){
+	public function atcad_device_inserter($dno, $dtte, $train, $coach){
 		$dname = "atcad_devices";
+		
 		$a = $this->db->query('CREATE TABLE IF NOT EXISTS '.$dname.' (
 			device_number varchar(20) PRIMARY KEY,
-			device_tte varchar(20) DEFAULT "000" 
+			device_tte varchar(20) DEFAULT "000",
+			device_train int(10) DEFAULT "42073",
+			device_coach_name varchar(5) DEFAULT "EE1"
 		);');
 		
 		echo $a;
+		
+		
 		if($a){$data = array('device_number' => $dno,
-							'device_tte' => $dtte);
+							'device_tte' => $dtte,
+							'device_train'=> $train,
+							'device_coach_name'=> $coach);
 			$a = $this->db->insert($dname, $data);
 		}
 	}
-	//ti-atcad.com/index.php/setup/atcad_device_inserter/SLVE_9856/385962457859
-	
+	//http://localhost/testdrive/index.php/setup/atcad_device_inserter/SLVE_9856/4E00707BD590/42073/CC1
 	
 	public function tte_details_inserter($ttno, $dtte, $ttname){
 		$dname = "tte_details";
