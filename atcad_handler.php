@@ -38,7 +38,7 @@
 				$r = '#'.$row['device_train'].'*';
 				$rest = mysql_query("select * from train_details where train_number=".$row['device_train'].";");
 				$row2 = mysql_fetch_array($rest);
-				$s = '#'.$row2['train_name'].'*$';
+				$s = '#'.$row2['train_name'].'*';
 				$t = '#'.$row['device_coach_name'].'*$';
 				echo $r;
 				echo $s;
@@ -104,10 +104,14 @@
 	else{
 		echo "Unauthorized access";
 	}
-?>
+
+/*
 <form method='post' action='atcad_handler.php'>
 	<input type='text' name='request_category' />
 	<input type='text' name='device_number' />
 	<input type='text' name='device_tte' />
 	<input type='submit' />
 </form>
+*/
+
+?>
