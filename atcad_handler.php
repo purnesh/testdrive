@@ -32,9 +32,17 @@
 			}
 		}
 		
-		public function assignment($tte_code){
-			
-			return $details;
+		public function assignment($a, $b){
+			$res = mysql_query("select * from atcad_devices where device_number='$a' AND device_tte='$b'");
+			for($row = mysql_fetch_array($res)){
+				if($row['device_train'] == 42073 && $row['device_coach_name']=="EE1"){
+					echo "Holiday";
+				}
+				else{
+					echo '#'.$row['device_train'].'*';
+					echo '#'.$row['device_coach_name'].'*$';
+				}
+			}
 		}
 		
 		public function ticket_verification($pnr_number){
@@ -77,7 +85,7 @@
 				break;
 			case 'assignment':
 				if($handle->device_verification($_POST['device_number'], $_POST['device_tte'])){
-					echo "#".$handle->assignment()."*$";
+					echo $handle->assignment($_POST['device_number'], $_POST['device_tte']);
 				}
 				else{
 					echo "#Login Failed*$";
