@@ -45,6 +45,14 @@
 				});
 			});
 			
+			$(document).on('click', '#tester', function(){
+				$(this).hide();
+				var home_panel_url = "<?php echo base_url('index.php/atcad_handler/login/DMY_000/123456'); ?>";
+				$.post(home_panel_url, {'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'}, function(result){
+					$(this).html(result);
+				});
+			});
+			
 			$(document).on('click', '.coach-tte.aec-record-details', function(){
 				var ttecode_to_enquire = $(this).html();
 				var tte_url = "<?php echo base_url('index.php/pchandler/get_ttedetails/'); ?>" + "/" + ttecode_to_enquire;

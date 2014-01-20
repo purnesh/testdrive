@@ -30,7 +30,7 @@ foreach ($a->result() as $row)
 		<div class="col-xs-2 col-md-2 coach-tte aec-record-details"><?php echo $row->coach_tte; ?></div>
 		<div class="col-xs-3 col-md-1 coach-device aec-record-details"><?php echo $row->coach_device; ?></div>
 	</div>
-
+<h2><span id="tester">POST Test</span></h2>
 <?php
 		}
 ?>

@@ -23,7 +23,10 @@ class Atcad_handler extends CI_Controller{
 	public function login($dc, $tc){
 		if($this->atcad_device->authenticate_device($dc, $tc)){
 			$this->logged_in = TRUE;
+			$a = $this->session->all_userdata();
+			var_dump($a);
 			$this->load->view('xsrf_tokenizer');
+			
 		}
 		else{
 			$this->logged_in = FALSE;
