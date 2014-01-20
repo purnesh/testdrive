@@ -34,16 +34,20 @@
 		
 		public function assignment($a, $b){
 			$res = mysql_query("select * from atcad_devices where device_number='$a' AND device_tte='$b'");
-			for($row = mysql_fetch_array($res)){
-				var_dump($row);
-				if($row['device_train'] == 42073 && $row['device_coach_name']=="EE1"){
-					echo "#Holiday*$";
-				}
-				else{
-					echo '#'.$row['device_train'].'*';
-					echo '#'.$row['device_coach_name'].'*$';
-				}
+			if($row = mysql_fetch_array($res)){
+				$r = '#'.$row['device_train'].'*';
+				$rest = mysql_query("select * from train_details where train_number=".$row['device_train'].";");
+				$row2 = mysql_fetch_array($rest);
+				$s = '#'.$row2['train_name'].'*$';
+				$t = '#'.$row['device_coach_name'].'*$';
+				echo $r;
+				echo $s;
+				echo $t;
 			}
+			else{
+				echo "ASD";
+			}
+			return 0;
 		}
 		
 		public function ticket_verification($pnr_number){
@@ -86,7 +90,7 @@
 				break;
 			case 'assignment':
 				if($handle->device_verification($_POST['device_number'], $_POST['device_tte'])){
-					echo $handle->assignment($_POST['device_number'], $_POST['device_tte']);
+					$handle->assignment($_POST['device_number'], $_POST['device_tte']);
 				}
 				else{
 					echo "#Login Failed*$";
