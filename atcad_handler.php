@@ -35,11 +35,11 @@
 		public function assignment($a, $b){
 			$res = mysql_query("select * from atcad_devices where device_number='$a' AND device_tte='$b'");
 			if($row = mysql_fetch_array($res)){
-				$r = '#'.$row['device_train'].'*';
+				$r = '#'.'Train No: '.$row['device_train'].'*';
 				$rest = mysql_query("select * from train_details where train_number=".$row['device_train'].";");
 				$row2 = mysql_fetch_array($rest);
 				$s = '#'.$row2['train_name'].'*';
-				$t = '#'.$row['device_coach_name'].'*$';
+				$t = '#'.'Coach Name: '.$row['device_coach_name'].'*$';
 				echo $r;
 				echo $s;
 				echo $t;
