@@ -46,8 +46,7 @@
 			});
 			
 			$(document).on('click', '#tester', function(){
-				$(this).hide();
-				var home_panel_url = "<?php echo base_url('index.php/atcad_handler/login/DMY_000/123456'); ?>";
+				var home_panel_url = "<?php echo base_url('index.php/atcad_handler/pnr_code_verifier/DMY_000'); ?>";
 				$.post(home_panel_url, {'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'}, function(result){
 					$(this).html(result);
 				});
