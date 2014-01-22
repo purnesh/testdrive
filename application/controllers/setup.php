@@ -363,8 +363,12 @@ class Setup extends CI_Controller{
 	// ----WARNING----
 	//DO NOT USE THIS FUNCTION DIRECTLY - USE WITH passenger_details_inserter
 
+
+	//DO NOT USE THIS FUNCTION DIRECTLY
+	//THE SERVER IS DESIGNED TO USE THIS FUNCTION INTERNALLY
 	public function mailer_daemon(){
-		$email_config = Array(
+		/*
+		 * $email_config = Array(
             'protocol'  => 'smtp',
             'smtp_host' => 'ssl://smtp.googlemail.com',
             'smtp_port' => '465',
@@ -375,15 +379,38 @@ class Setup extends CI_Controller{
             'newline'   => "\r\n"
         );
 
-        $this->load->library('email', $email_config);
+	    $this->load->library('email', $email_config);
 
         $this->email->from('kaumudi.upreti@gmail.com', 'invoice');
         $this->email->to('purnesh.xyz@gmail.com');
         $this->email->subject('Invoice');
         $this->email->message('Test');
+		*/
+		
+		$this->load->library('email');
+		$config['protocol'] = 'sendmail';
+		$config['mailpath'] = '/usr/sbin/sendmail';
+		$config['charset'] = 'iso-8859-1';
+		$config['wordwrap'] = TRUE;
+
+		$this->email->initialize($config);
+
+		$this->email->from('admin@ti-atcad.com', 'Texas Instruments');
+		$this->email->to('purnesh.xyz@gmail.com');
+		//$this->email->cc('another@another-example.com');
+		//$this->email->bcc('them@their-example.com');
+
+		$this->email->subject('Email Test');
+		$this->email->message('Testing the email class and writing on it.');
 
         echo $this->email->send();
+		echo $this->email->print_debugger();
+
 	}
+	//DO NOT USE THIS FUNCTION DIRECTLY
+	//THE SERVER IS DESIGNED TO USE THIS FUNCTION INTERNALLY
+	
+
 
 	public function passenger_details_inserter($tno, $cls, $name, $age, $email, $frm, $to){
 		$name = 'reservation_details_tno';
