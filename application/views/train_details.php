@@ -11,27 +11,49 @@
 		?>
 	</div>
 </div>
+
+
 <div class="col-md-6" id="data-collector">
 	<div class="aec-record col-md-12 heading">
-		<div class="col-xs-3 col-md-2 coach-number aec-record-details heading"><strong>Coach Number</strong></div>
-		<div class="col-xs-2 col-md-4 coach-class aec-record-details heading"><strong>Coach Class</strong></div>
-		<div class="col-xs-2 col-md-2 coach-name aec-record-details heading"><strong>Coach Name</strong></div>
-		<div class="col-xs-2 col-md-2 coach-tte aec-record-details heading"><strong>Coach TTE</strong></div>
-		<div class="col-xs-3 col-md-1 coach-device aec-record-details heading"><strong>Coach Device</strong></div>
+		<div class="col-xs-3 col-md-3 coach-number aec-record-details heading"><strong>Coach Number</strong></div>
+		<div class="col-xs-2 col-md-3 coach-class aec-record-details heading"><strong>Coach Class</strong></div>
+		<div class="col-xs-2 col-md-3 coach-name aec-record-details heading"><strong>Coach Name</strong></div>
+		<div class="col-xs-2 col-md-3 coach-tte aec-record-details heading"><strong>Coach TTE</strong></div>
 	</div>
 <?php
 foreach ($a->result() as $row)
 	{
 ?>
 	<div class="aec-record col-md-12">
-		<div class="col-xs-3 col-md-2 coach-number aec-record-details"><?php echo $row->coach_number; ?></div>
-		<div class="col-xs-2 col-md-4 coach-class aec-record-details"><?php echo $row->coach_class; ?></div>
-		<div class="col-xs-2 col-md-2 coach-name aec-record-details"><?php echo $row->coach_name; ?></div>
-		<div class="col-xs-2 col-md-2 coach-tte aec-record-details"><?php echo $row->coach_tte; ?></div>
-		<div class="col-xs-3 col-md-1 coach-device aec-record-details"><?php echo $row->coach_device; ?></div>
+		<div class="col-xs-3 col-md-3 coach-number aec-record-details"><?php echo $row->coach_number; ?></div>
+		<div class="col-xs-2 col-md-3 coach-class aec-record-details"><?php echo $row->coach_class; ?></div>
+		<div class="col-xs-2 col-md-3 coach-name aec-record-details"><?php echo $row->coach_name; ?></div>
+		<div class="col-xs-2 col-md-3 coach-tte aec-record-details"><?php echo $row->coach_tte; ?></div>
 	</div>
-<h2><span id="tester">POST Test</span></h2>
 <?php
 		}
+?>
+</div>
+
+<div class="col-md-2 station-list">
+
+<div class="station-list heading col-md-12">
+	<div class="col-xs-3 col-md-4 station-code"><strong>Stn. Code</strong></div>
+	<div class="col-xs-3 col-md-4 arrival-time"><strong>Arr. Time</strong></div>
+	<div class="col-xs-3 col-md-4 departure-time"><strong>Dept. Time</strong></div>
+</div>
+
+<?php
+	foreach($train_route->result() as $row){
+?>
+
+<div class="station-list col-md-12">
+	<div class="col-xs-3 col-md-4 station-code"><?php echo $row->station_code;?></div>
+	<div class="col-xs-3 col-md-4 arrival-time"><?php echo $row->arrival_time;?></div>
+	<div class="col-xs-3 col-md-4 departure-time"><?php echo $row->departure_time;?></div>
+</div>
+
+<?php
+	}
 ?>
 </div>

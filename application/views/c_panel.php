@@ -18,12 +18,14 @@
     <script src="<?php echo base_url('content/js/booty.js'); ?>"></script>
     <script language="javascript">
 		$(document).ready(function(){
+			var current_train;
 			$.post("<?php echo base_url('index.php/pchandler/get_trains'); ?>", {'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'}, function(result){
 				$("#current_data").html(result);
 			});
 			
 			$(document).on('click', '.train-record.col-md-12', function(){
 				var train_no_to_enquire = $(this).children().first().html();
+				current_train = train_no_to_enquire;
 				var train_no_url = "<?php echo base_url('index.php/pchandler/train_details'); ?>" + "/" + train_no_to_enquire;
 				$.post(train_no_url, {'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'}, function(result){
 					$("#current_data").html(result);
@@ -45,17 +47,17 @@
 				});
 			});
 			
-			$(document).on('click', '#tester', function(){
-				var home_panel_url = "<?php echo base_url('index.php/atcad_handler/pnr_code_verifier/DMY_000'); ?>";
-				$.post(home_panel_url, {'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'}, function(result){
-					$(this).html(result);
+			$(document).on('click', '.atcad-enabled-coaches.breadcrumb-trail', function(){
+				var train_no_url = "<?php echo base_url('index.php/pchandler/train_details'); ?>" + "/" + current_train;
+				$.post(train_no_url, {'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'}, function(result){
+					$("#current_data").html(result);
 				});
 			});
 			
-			$(document).on('click', '.coach-tte.aec-record-details', function(){
-				var ttecode_to_enquire = $(this).html();
-				var tte_url = "<?php echo base_url('index.php/pchandler/get_ttedetails/'); ?>" + "/" + ttecode_to_enquire;
-				$.post(tte_url, {'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'}, function(result){
+			$(document).on('click', '.aec-record.col-md-12', function(){
+				var coach_to_enquire = $(this).children().first().html();
+				var coach_url = "<?php echo base_url('index.php/pchandler/get_coach_details/'); ?>" + "/" + current_train + "/" + coach_to_enquire;
+				$.post(coach_url, {'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'}, function(result){
 					$("#current_data").html(result);
 				});
 			});

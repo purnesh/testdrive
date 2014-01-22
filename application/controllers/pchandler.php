@@ -48,10 +48,28 @@ class Pchandler extends CI_Controller{
 	public function train_details($train_number){
 		if($this->logged_in){
 			$data['a'] = $this->atcad_enabled_coaches->get_list($train_number);
-			$data['header'] = "<i class='fa fa-th-list'></i>ATCAD Coaches";
+			$data['header'] = "<i class='fa fa-list-alt'></i>Train Details: $train_number";
 			$data['the_trail'] = array	("trains-list breadcrumb-trail" => "Trains List",
 										"atcad-enabled-coaches breadcrumb-trail" => "ATCAD Coaches");
+			$data['train_route'] = $this->atcad_train->get_route($train_number);
 			$this->load->view('train_details',$data);
+		}
+		else{
+			$data['signin_title'] = "Sign in - ATCAD";
+			$data['error'] = "You have been logged out!";
+			$this->load->view('signin', $data);
+		}
+	}
+	
+	public function get_coach_details($train_number, $coach_number){
+		if($this->logged_in){
+			$data['route'] = $this->atcad_train->get_route($train_number);
+			$data['blueprint'] = $this->atcad_enabled_coaches->get_details($train_number, $coach_number);
+			$data['header'] = "<i class='fa fa-list-alt'></i>Coach Blueprint: $coach_number";
+			$data['the_trail'] = array	("trains-list breadcrumb-trail" => "Trains List",
+										"atcad-enabled-coaches breadcrumb-trail" => "ATCAD Coaches",
+										"coach-blueprint breadcrumb-trail" => "Coach Blueprint");
+			$this->load->view('coach_details', $data);
 		}
 		else{
 			$data['signin_title'] = "Sign in - ATCAD";

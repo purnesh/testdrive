@@ -11,6 +11,8 @@ class Setup extends CI_Controller{
 			$this->load->helper('html');
 			$this->load->library('session');
 			$this->load->database();
+			$this->load->model('atcad_train');
+			$this->load->model('atcad_enabled_coaches');
 	}
 	
 	public function index(){
@@ -53,9 +55,13 @@ class Setup extends CI_Controller{
 			KEY last_activity_idx (last_activity)
 		);');
 		echo $a;
-		
-
-	$a = $this->db->query('CREATE TABLE IF NOT EXISTS train_details (
+	*/	
+	
+	 	
+	}
+	
+	function train_details_inserter($tno, $tname, $tfro, $tto, $tst, $tdt, $ta){
+		$a = $this->db->query('CREATE TABLE IF NOT EXISTS train_details (
 			train_number int(10),
 			train_name varchar(30) DEFAULT "1" NOT NULL,
 			train_from varchar(5) DEFAULT "1" NOT NULL,
@@ -66,11 +72,8 @@ class Setup extends CI_Controller{
 			PRIMARY KEY (train_number)
 		);');
 	
-	echo $a;
-	*/ 	
-	}
-	
-	function train_details_inserter($tno, $tname, $tfro, $tto, $tst, $tdt, $ta){
+		echo "Train Details\n";
+		
 		$data = array(
 		   'train_number' => $tno,
 		   'train_name' => $tname,
@@ -81,9 +84,15 @@ class Setup extends CI_Controller{
 		   'train_active' => $ta
 		);
 		$a = $this->db->insert('train_details', $data);
-		$this->create_table_for_train($tno);
-		echo $a;
+		echo "Details Inserted\n";
+		
+		if($this->coach_details_inserter($tno, 000, 'Engine', 'EE1', '123456', 'DMY_000', 5)){
+			echo "Coach Lister Created\n";
+			echo "You're advised to create coach blueprints manually\n";
+		}
 	}
+	
+	
 	
 	function train_list_selector(){
 		$a = $this->db->get('train_details');
@@ -100,6 +109,33 @@ class Setup extends CI_Controller{
 		echo $a;
 	}
 	
+	function train_route_definer($tno, $aster){
+		$tname = $tno."_route";
+		$a = $this->db->query('CREATE TABLE IF NOT EXISTS '.$tname.' (
+			serial_number int(10) AUTO_INCREMENT PRIMARY KEY,
+			station_code varchar(10) UNIQUE,
+			station_name varchar(20) NOT NULL,
+			arrival_time varchar(5) NOT NULL,
+			departure_time varchar(5) NOT NULL
+		);');
+		$arr = explode('__', $aster);
+		var_dump($arr);
+		$i=0; 
+			while($arr[$i]){
+				$data = explode('_', $arr[$i]);
+				$data2 = array('station_code' => $data[0],
+						'station_name' => $data[1],
+						'arrival_time' => $data[2],
+						'departure_time' =>$data[3]
+						);
+				$a = $this->db->insert($tname, $data2);
+				$i = $i + 1;
+			}
+	}
+	//http://localhost/testdrive/index.php/setup/train_route_definer/87569/NZE_Nazier_23:30_01:20__NYT_Nayait_1:25_1:30__RYT_Raight_1:35_1:55
+	
+	// ---- WARNING ----
+	//DO NOT USE THIS METHOD BEFORE DEFINING ROUTE FOR A TRAIN
 	function coach_details_inserter($tno, $cno, $ccls, $cname, $ctte, $capacity){
 		$tname = $tno."_aec";
 		$a = $this->db->query('CREATE TABLE IF NOT EXISTS '.$tname.' (
@@ -107,10 +143,8 @@ class Setup extends CI_Controller{
 			coach_class varchar(20) DEFAULT "1" NOT NULL,
 			coach_name varchar(5) DEFAULT "1" NOT NULL,
 			coach_tte varchar(20) DEFAULT 1 NOT NULL,
-			coach_capacity int(5) DEFAULT 1 NOT NULL,
-			FOREIGN KEY (coach_tte) REFERENCES atcad_devices(device_tte)
+			coach_capacity int(5) DEFAULT 1 NOT NULL
 		);');
-		echo $a;
 		if($a){$data = array('coach_number' => $cno,
 					'coach_class' => $ccls,
 					'coach_name' => $cname,
@@ -118,53 +152,88 @@ class Setup extends CI_Controller{
 					'coach_capacity' => $capacity
 					);
 			$a = $this->db->insert($tname, $data);
-		}
-		if($a){
 			$this->coach_blueprint_inserter($tno, $cno, $ccls, $capacity);
+			echo 'All well and good';
+			return 1;
+		}
+		else{
+			return 0;
 		}
 		
 	}
-	//http://localhost/testdrive/index.php/setup/coach_details_inserter/32072/23568/Chair-Car/CC1/123456/10
+	//http://localhost/testdrive/index.php/setup/coach_details_inserter/42073/23568/Chair-Car/CC1/4E00707BD590/10
 	
+	// ---- WARNING ----
+	//DO NOT USE THIS METHOD BEFORE DEFINING ROUTE FOR A TRAIN
 	function coach_blueprint_inserter($tno, $coach_number, $class, $capacity){
 			$the_name = $tno."_aec_".$coach_number."_details";
+			$answer = $this->atcad_train->get_route($tno);
+			$list = "";
+			foreach($answer->result() as $row){
+				$list = $list.", ".$row->station_code." varchar(5) DEFAULT '0'";
+			}
 			$a = $this->db->query('CREATE TABLE IF NOT EXISTS '.$the_name.' (
 				serial_number int(10) PRIMARY KEY,
-				alotted_to varchar(20) DEFAULT "1" NOT NULL,
 				seat_type varchar(5) DEFAULT "1" NOT NULL
+				'.$list.'
 			);');
 			$t=1;
-			if($class == "Chair-Car"){
-				for($i=1; $i<=$capacity; $i++){
-					$st;
-					switch ($t){
-						case 1:
-							$st = "LW";
-							$t = $t + 1;
-							break;
-						case 2:
-							$st = "LM";
-							$t = $t + 1;
-							break;
-						case 3:
-							$st = "LC";
-							$t = $t + 1;
-							break;
-						case 4:
-							$st = "RC";
-							$t = $t + 1;
-							break;
-						case 5:
-							$st = "RW";
-							$t = 1;
-							break;
+			switch($class){
+				case "Chair-Car":
+					for($i=1; $i<=$capacity; $i++){
+						$st;
+						switch ($t){
+							case 1:
+								$st = "LW";
+								$t = $t + 1;
+								break;
+							case 2:
+								$st = "LM";
+								$t = $t + 1;
+								break;
+							case 3:
+								$st = "LC";
+								$t = $t + 1;
+								break;
+							case 4:
+								$st = "RC";
+								$t = $t + 1;
+								break;
+							case 5:
+								$st = "RW";
+								$t = 1;
+								break;
+						}
+						$a = $this->db->query('insert into '.$the_name." (serial_number, seat_type) values(
+							$i, '$st'
+							);");
 					}
-					$a = $this->db->query('insert into '.$the_name." values(
-						$i, 000, '$st'
-						);");
-				}
+					break;
+					
+				case "Engine":
+					for($i=1; $i<=$capacity; $i++){
+						$st;
+						switch ($t){
+							case 1:
+								$st = "Driver";
+								$t = $t + 1;
+								break;
+							case 2:
+								$st = "Astt. Driver";
+								$t = $t + 1;
+								break;
+							case 3:
+								$st = "Staff";
+								$t = 1;
+								break;
+						}
+						$a = $this->db->query('insert into '.$the_name." (serial_number, seat_type) values(
+							$i, '$st'
+							);");
+					}
 			}
 	}
+	//http://localhost/testdrive/index.php/setup/coach_blueprint_inserter/87569/24568/Chair-Car/20
 	
 	function train_details_selector($tno){
 		$tname = $tno."_aec";
@@ -223,29 +292,111 @@ class Setup extends CI_Controller{
 	}
 	//http://ti-atcad.com/index.php/setup/tte_details_inserter/4E00707BD590/DMY_000/Saurabh_Verma
 	
-	/*
-	public function passenger_details_inserter($pnrno, $tno, $cls, $name, $age, $frm, $to){
-		$dname = $tno."_passengers";
-		$a = $this->db->query('CREATE TABLE IF NOT EXISTS '.$dname.' (
-			pnr_number varchar(20) PRIMARY KEY,
-			train_number varchar(8) DEFAULT "123456",
-			ticket_class varchar(8) DEFAULT "CC1",
-			name varchar(20) DEFAULT "NO NAME",
-			age int(5) DEFAULT 0,
-			from varchar(5),
-			to varchar(5),
-			FOREIGN KEY (train_number) REFERENCES train_details(device_number)
-			FOREIGN KEY (device_alotted) REFERENCES atcad_devices(device_number)
-		);');
-		
-		echo $a;
-		if($a){$data = array('tte_code' => $ttno,
-							'device_alotted' => $dtte,
-							'tte_name' => $ttname
-							);
-			$a = $this->db->insert($dname, $data);
+	
+	// ---- WARNING ----
+	//DO NOT USE THIS FUNCTION DIRECTLY - USE WITH passenger_details_inserter
+	public function check_state($tno, $cls, $frm, $to){
+		$flag1 = 0;
+		$flag2 = 0;
+		$err = 0;
+		$alotted_seat_no = 0;
+		$alotted_coach_no = 0;
+		$name = $tno."_aec";
+		$lister = "";
+		$n = "";
+		$route = "";
+		$numbers = "";
+		//List of coach number
+		$loc = $this->db->query("select coach_number from $name where coach_class='$cls';");
+		$route = $tno."_route";
+		//List of station codes
+		$los = $this->db->query("select * from $route;");
+		foreach($loc->result() as $list_of_coaches){
+			$n = $tno."_aec_".$list_of_coaches->coach_number."_details";
+			$q = $this->db->get($n);
+			//List of seats
+			foreach($q->result() as $seats_row){
+				$lister = "";
+				$err = 0;
+				foreach($los->result() as $station){
+					if($err == 0 && ($flag1 == 1 || $station->station_code == $frm)){
+						$flag1 = 1;
+						$c = $station->station_code;
+						if(!$seats_row->$c && $station->station_code != $to){
+							$lister = $lister.$station->station_code."=1".", ";
+						}
+						else{
+							if($station->station_code == $to){
+								$lister = $lister.$station->station_code."=1";
+								$alotted_seat_no = $seats_row->serial_number;
+								$alotted_coach_no = $list_of_coaches->coach_number;
+								$err = 2;
+								break;
+							}
+							else{
+								$err = 1;
+								break;
+							}
+						}
+					}
+					
+				}
+				if($err == 2){
+						break;
+				}
+				else{
+					
+				}
+			}
+			if($err == 2){
+					break;
+			}
 		}
-	}*/
+		if($err == 1){
+			echo "FUCK";
+		}
+		else{
+			echo $this->db->query("update $n set $lister where serial_number=$alotted_seat_no");
+		}
+	}
+	//http://localhost/testdrive/index.php/setup/check_state/87569/Chair-Car/NZE/RYT
+	// ----WARNING----
+	//DO NOT USE THIS FUNCTION DIRECTLY - USE WITH passenger_details_inserter
+
+	public function mailer_daemon(){
+		$email_config = Array(
+            'protocol'  => 'smtp',
+            'smtp_host' => 'ssl://smtp.googlemail.com',
+            'smtp_port' => '465',
+            'smtp_user' => 'kaumudi.upreti@gmail.com',
+            'smtp_pass' => 'Kaumudiishere.',
+            'mailtype'  => 'html',
+            'starttls'  => true,
+            'newline'   => "\r\n"
+        );
+
+        $this->load->library('email', $email_config);
+
+        $this->email->from('kaumudi.upreti@gmail.com', 'invoice');
+        $this->email->to('purnesh.xyz@gmail.com');
+        $this->email->subject('Invoice');
+        $this->email->message('Test');
+        echo $this->email->send();
+	}
+
+	public function passenger_details_inserter($tno, $cls, $name, $age, $email, $frm, $to){
+		$name = 'reservation_details_tno';
+		$create = $this->db->query("CREATE TABLE IF NOT EXISTS $name (
+									serial_number int(10) PRIMARY KEY AUTO_INCREMENT,
+									pnr_number varchar(10) UNIQUE,
+									coach_name varchar(5),
+									seat_alotted int(10)
+								)");
+		if($create){
+			echo "Reservation Charts OK for $tno";
+			
+		}
+	}
 	//http://ti-atcad.com/index.php/setup/tte_details_inserter/385962457859/DMY_000/Saurabh_Verma
 	
 	function device_details_updater($device_number, $tted){

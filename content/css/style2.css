@@ -16,10 +16,12 @@ body {
 	
 }
 
-
-
 .reder{
 	color: red;
+}
+
+.col-md-2.station-list{
+	margin-left:-1.3em;
 }
 
 .train-record.col-md-12.heading{
@@ -27,6 +29,14 @@ body {
 	color:#eee;
 	border-radius:6px;
 }
+
+
+.station-list.heading.col-md-12{
+	background-color:rgb(51,51,51);
+	color:#eee;
+	border-radius:6px;
+}
+
 
 .aec-record.col-md-12.heading{
 	background-color:rgb(51,51,51);

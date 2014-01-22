@@ -29,5 +29,11 @@ class Atcad_train extends CI_Model{
 		$a = $this->db->insert('train_details', $data);
 		echo $a;
 	}
+	
+	function get_route($train_number){
+		$tname = $train_number."_route";
+		$query = $this->db->get($tname);
+		return $query;
+	}
 }
 ?>

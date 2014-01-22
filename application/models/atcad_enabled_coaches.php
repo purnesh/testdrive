@@ -16,6 +16,10 @@
 			return $query;
 		}
 		
-		
+		public function get_details($tno, $cno){
+			$table_name = $tno."_aec_".$cno."_details";
+			$query = $this->db->get($table_name);
+			return $query;
+		}
 	}
 ?>
