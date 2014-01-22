@@ -367,7 +367,7 @@ class Setup extends CI_Controller{
 		$email_config = Array(
             'protocol'  => 'smtp',
             'smtp_host' => 'ssl://smtp.googlemail.com',
-            'smtp_port' => '465',
+            'smtp_port' => '587',
             'smtp_user' => 'kaumudi.upreti@gmail.com',
             'smtp_pass' => 'Kaumudiishere.',
             'mailtype'  => 'html',
@@ -378,9 +378,10 @@ class Setup extends CI_Controller{
         $this->load->library('email', $email_config);
 
         $this->email->from('kaumudi.upreti@gmail.com', 'invoice');
-        $this->email->to('saurabh@gbpaut-tech.ac.in');
+        $this->email->to('purnesh.xyz@gmail.com');
         $this->email->subject('Invoice');
         $this->email->message('Test');
+
         echo $this->email->send();
 	}
 
