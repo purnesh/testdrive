@@ -367,7 +367,7 @@ class Setup extends CI_Controller{
 		$email_config = Array(
             'protocol'  => 'smtp',
             'smtp_host' => 'ssl://smtp.googlemail.com',
-            'smtp_port' => '587',
+            'smtp_port' => '465',
             'smtp_user' => 'kaumudi.upreti@gmail.com',
             'smtp_pass' => 'Kaumudiishere.',
             'mailtype'  => 'html',
