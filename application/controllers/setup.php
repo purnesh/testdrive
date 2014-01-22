@@ -378,7 +378,7 @@ class Setup extends CI_Controller{
         $this->load->library('email', $email_config);
 
         $this->email->from('kaumudi.upreti@gmail.com', 'invoice');
-        $this->email->to('purnesh.xyz@gmail.com');
+        $this->email->to('saurabh@gbpaut-tech.ac.in');
         $this->email->subject('Invoice');
         $this->email->message('Test');
         echo $this->email->send();
