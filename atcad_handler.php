@@ -51,9 +51,20 @@
 		}
 		
 		public function ticket_verification($pnr_number){
-			$res = mysql_query("select * from atcad_devices where device_number='$a' AND device_tte='$b'");
+			$res = mysql_query("select * from pnr_store where pnr_no=$pnr_number");
 			$result = mysql_fetch_array($res);
 			if($result){
+				$name = $result['passenger_name'];
+				$age = $result['passenger_age'];
+				$frm = $result['from_stn'];
+				$to  = $result['to_stn'];
+				$seat = $result['seat_no'];
+				$coach_no  = $result['coach_no'];
+				
+				echo "# $name $age*";
+				echo "# $frm $to*";
+				echo "# $seat $coach_no*".'$';
+				$a = mysql_query("update pnr_store set confirmation=2 where pnr_no=$pnr_number");
 				return 1;
 			}
 			else{
