@@ -159,9 +159,9 @@ class Setup extends CI_Controller{
 			departure_time varchar(5) NOT NULL
 		);');
 		$arr = explode('__', $aster);
-		var_dump($arr);
-		$i=0; 
-			while($arr[$i]){
+		//var_dump($arr);
+		$i=0;
+			while($i<count($arr)){
 				$data = explode('_', $arr[$i]);
 				$data2 = array('station_code' => $data[0],
 						'station_name' => $data[1],
@@ -171,6 +171,7 @@ class Setup extends CI_Controller{
 				$a = $this->db->insert($tname, $data2);
 				$i = $i + 1;
 			}
+			return 1;
 	}
 	//http://localhost/testdrive/index.php/setup/train_route_definer/87569/NZE_Nazier_23:30_01:20__NYT_Nayait_1:25_1:30__RYT_Raight_1:35_1:55
 	
