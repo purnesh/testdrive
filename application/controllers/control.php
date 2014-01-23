@@ -2,14 +2,13 @@
 
 class Control extends CI_Controller{
 	
-	public function __construct()
-       {
-            parent::__construct();
-            $this->load->helper('url');
-			$this->load->helper('form');
-			$this->load->helper('html');
-			$this->load->library('session');
-			$this->load->database();
+	public function __construct(){
+		parent::__construct();
+		$this->load->helper('url');
+		$this->load->helper('form');
+		$this->load->helper('html');
+		$this->load->library('session');
+		$this->load->database();
 	}
 	
 	public function index(){
@@ -58,6 +57,12 @@ class Control extends CI_Controller{
 		}
 	}
 	
+	public function test(){
+			$data['header'] = "<i class='fa fa-th-list'></i>Home";
+			$this->load->view('c_panel_home', $data);
+
+	}
+	
 	public function logout(){
 		$valid['logged_in'] = FALSE;
 		$this->session->set_userdata($valid);
@@ -67,4 +72,7 @@ class Control extends CI_Controller{
 				$this->load->view('signin', $data);
 	}
 }
+
+// yooitsjoshi@rediffmail.com	
+// 9756214869
 ?>

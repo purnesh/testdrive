@@ -19,7 +19,7 @@
     <script language="javascript">
 		$(document).ready(function(){
 			var current_train;
-			$.post("<?php echo base_url('index.php/pchandler/get_trains'); ?>", {'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'}, function(result){
+			$.post("<?php echo base_url('index.php/control/test'); ?>", {'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'}, function(result){
 				$("#current_data").html(result);
 			});
 			
@@ -39,13 +39,21 @@
 				});
 			});
 			
-			$(document).on('click', '.home.breadcrumb-trail', function(){
+			$(document).on('click', '.trains-list.home-page-buttons', function(){
 				$(this).hide();
-				var home_panel_url = "<?php echo base_url('index.php/pchandler/home_panel'); ?>";
-				$.post(home_panel_url, {'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'}, function(result){
-					$("#data-collector").html(result);
+				$.post("<?php echo base_url('index.php/pchandler/get_trains'); ?>", {'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'}, function(result){
+					$("#current_data").html(result);
 				});
 			});
+			
+			$(document).on('click', '.home.breadcrumb-trail', function(){
+				var home_panel_url = "<?php echo base_url('index.php/control/test'); ?>";
+				$.post(home_panel_url, {'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'}, function(result){
+					$("#current_data").html(result);
+				});
+			});
+			
+			
 			
 			$(document).on('click', '.atcad-enabled-coaches.breadcrumb-trail', function(){
 				var train_no_url = "<?php echo base_url('index.php/pchandler/train_details'); ?>" + "/" + current_train;
