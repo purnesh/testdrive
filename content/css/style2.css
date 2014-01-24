@@ -205,3 +205,8 @@ margin-right:.3em;
 .fa.fa-cog.fa-spin{
 	margin-right:.3em;
 }
+
+.alert.alert-danger.error{
+	padding-top:.5em;
+	padding-bottom:.5em ;
+}

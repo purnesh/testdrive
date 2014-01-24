@@ -52,23 +52,27 @@
 		
 		public function ticket_verification($pnr_number){
 			$res = mysql_query("select * from pnr_store where pnr_no=$pnr_number");
-			$result = mysql_fetch_array($res);
-			if($result){
-				$name = $result['passenger_name'];
-				$age = $result['passenger_age'];
-				$frm = $result['from_stn'];
-				$to  = $result['to_stn'];
-				$seat = $result['seat_no'];
-				$coach_no  = $result['coach_no'];
-				
-				echo "# $name $age*";
-				echo "# $frm $to*";
-				echo "# $seat $coach_no*".'$';
-				$a = mysql_query("update pnr_store set confirmation=2 where pnr_no=$pnr_number");
-				return 1;
+			if($res){
+				while($result = mysql_fetch_array($res)){
+					if($result){
+						$pnr = $result['pnr_no'];
+						$name = $result['passenger_name'];
+						$age = $result['passenger_age'];
+						$frm = $result['from_stn'];
+						$to  = $result['to_stn'];
+						$seat = $result['seat_no'];
+						$coach_no  = $result['coach_no'];
+						echo "#$name $age*";
+						echo "#$frm $to*";
+						echo "#$coach_no $seat*".'$';
+						$a = mysql_query("update pnr_store set confirmation=2 where pnr_no=$pnr_number;");
+						return 1;
+					}
+				}
+				return 0;
 			}
 			else{
-				return 0;
+				echo mysql_error();
 			}
 		}
 	}
@@ -116,13 +120,11 @@
 		echo "Unauthorized access";
 	}
 
-/*
+?>
 <form method='post' action='atcad_handler.php'>
-	<input type='text' name='request_category' />
-	<input type='text' name='device_number' />
-	<input type='text' name='device_tte' />
+	<input type='text' name='request_category' value='ticket_verification'/>
+	<input type='text' name='device_number' value='DMY_000'/>
+	<input type='text' name='device_tte' value='123456'/>
+	<input type='text' name='pnr_number' value='3234554'/>
 	<input type='submit' />
 </form>
-*/
-
-?>

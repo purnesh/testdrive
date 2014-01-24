@@ -204,6 +204,7 @@ class Setup extends CI_Controller{
 	}
 	//http://localhost/testdrive/index.php/setup/coach_details_inserter/42073/23568/Chair-Car/CC1/4E00707BD590/10
 	
+	
 	// ---- WARNING ----
 	//DO NOT USE THIS METHOD BEFORE DEFINING ROUTE FOR A TRAIN
 	function coach_blueprint_inserter($tno, $coach_number, $class, $capacity){

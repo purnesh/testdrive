@@ -33,14 +33,12 @@
 			});
 			
 			$(document).on('click', '.trains-list.breadcrumb-trail', function(){
-				$(this).hide();
 				$.post("<?php echo base_url('index.php/pchandler/get_trains'); ?>", {'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'}, function(result){
 					$("#current_data").html(result);
 				});
 			});
 			
-			$(document).on('click', '.trains-list.home-page-buttons', function(){
-				$(this).hide();
+			$(document).on('click', '.trains-list.home-page-button', function(){
 				$.post("<?php echo base_url('index.php/pchandler/get_trains'); ?>", {'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'}, function(result){
 					$("#current_data").html(result);
 				});
@@ -91,8 +89,8 @@
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
               <li class="active"><a href="<?php echo base_url('index.php/control');?>"><i class="fa fa-gear fa-spin"></i>Control Panel</a></li>
-              <li><a href="<?php echo base_url('index.php/about');?>"><i class="fa fa-info-circle"></i>About</a></li>
-              <li><a href="<?php echo base_url('/index.php/control/logout');?>"><span class="glyphicon glyphicon-remove-circle button-icon-home"></span>Logout</a></li>
+              <li ><a href="<?php echo base_url('index.php/about');?>"><i class="fa fa-info-circle"></i>About</a></li>
+              <li ><a href="<?php echo base_url('/index.php/control/logout');?>"><span class="glyphicon glyphicon-remove-circle button-icon-home"></span>Logout</a></li>
             </ul>
           </div>
         </div>
