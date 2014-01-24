@@ -50,6 +50,27 @@
 			return 0;
 		}
 		
+		public function get_station_list($a, $b){
+			$res = mysql_query("select * from atcad_devices where device_number='$a' AND device_tte='$b'");
+			$result = mysql_fetch_array($res);
+			if($result){
+				$tr = $result['device_train']."_route";
+				$q = mysql_query("select * from $tr");
+				while($r = mysql_fetch_array($q)){
+					$num = $r['serial_number'];
+					$sc = $r['station_code'];
+					echo "# $num : $sc *";
+				}
+				echo '$';
+				//$cn = $result['cn'];
+				return 1;
+			}
+			else{
+				return 0;
+			}
+		
+		}
+		
 		public function ticket_verification($pnr_number){
 			$res = mysql_query("select * from pnr_store where pnr_no=$pnr_number");
 			if($res){
@@ -88,6 +109,15 @@
 					echo "#Login Failed*$";
 				}
 				break;
+			
+			case 'evaluate_request':
+				if($handle->device_verification($_POST['device_number'], $_POST['device_tte'])){
+					$handle->get_station_list($_POST['device_number'], $_POST['device_tte']);
+				}
+				else{
+					echo "#Login Failed*$";
+				}
+				break;
 				
 			case 'ticket_verification':
 				if($handle->device_verification($_POST['device_number'], $_POST['device_tte'])){
@@ -119,12 +149,11 @@
 	else{
 		echo "Unauthorized access";
 	}
-
+	
 ?>
 <form method='post' action='atcad_handler.php'>
-	<input type='text' name='request_category' value='ticket_verification'/>
+	<input type='text' name='request_category' value='evaluate_request'/>
 	<input type='text' name='device_number' value='DMY_000'/>
 	<input type='text' name='device_tte' value='123456'/>
-	<input type='text' name='pnr_number' value='3234554'/>
 	<input type='submit' />
 </form>

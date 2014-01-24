@@ -87,9 +87,9 @@ class Pchandler extends CI_Controller{
 	
 	public function train_adder(){
 		$data['header'] = "<i class='fa fa-pencil'></i>Add Train";
-		$data['the_trail'] = array	("add-coach breadcrumb-trail" => "Add Coach");
+		$data['the_trail'] = array	("add-coach breadcrumb-trail" => "Add Train");
 		$data['trains_list'] = $this->atcad_train->get_list();
-		$this->load->view('add_coach', $data);
+		$this->load->view('add_train', $data);
 	}
 	
 	public function get_ttedetails($ttecode){

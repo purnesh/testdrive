@@ -41,7 +41,9 @@
 			var coach_class = $(".form-control.coach_class").val();
 			var capacity = $(".form-control.coach_capacity").val();
 			var url_to_send_to = "<?php echo base_url('index.php/setup/coach_details_inserter');?>"+"/"+train_number+"/"+coach_no+"/"+coach_class+"/"+coach_name+"/"+coach_tte+"/"+capacity;
-			
+			$.post(url_to_send_to, {'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'}, function(){
+				$("#result").html(result);
+			});
 		});
 
 	</script>
@@ -75,6 +77,6 @@
 		<br />
 	</div>
 	<button class="btn btn-lg btn-primary btn-block add-coach" type="submit">Add Coach</button>
-	
+	<div id="result"> </div>
 </div>
 
