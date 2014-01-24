@@ -20,6 +20,7 @@
 		var coach_tte = "DMY_000";
 		$(document).on('click', '.list-group-item.train-entries', function(){
 			train_number = $(this).html();
+			
 			$(this).addClass(' active');
 			$(".form-control.coach_number").slideDown();
 		});
