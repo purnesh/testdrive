@@ -167,6 +167,17 @@
 					echo "#Login Failed*$";
 				}
 				break;
+			case 'pnr_verification':
+				if($handle->device_verification($_POST['device_number'], $_POST['device_tte'])){
+					//$handle->pnr_verification($_POST['device_number'], $_POST['device_tte']);
+					echo "#Kamal-Joshi*";
+					echo "#Age: 20*";
+					echo '#CC1 13*$';
+				}
+				else{
+					echo "#Login Failed*$";
+				}
+				break;
 			default:
 				echo "Default";
 				break;
