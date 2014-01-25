@@ -137,9 +137,9 @@
 				}
 				break;
 				
-			case 'validate':
+			case 'evaluate':
 				if($handle->device_verification($_POST['device_number'], $_POST['device_tte'])){
-					$handle->validate_station($_POST['device_number'], $_POST['device_tte'], $_POST['station_code']);
+					$handle->validate($_POST['device_number'], $_POST['device_tte'], $_POST['station_code']);
 				}
 				else{
 					echo "#Login Failed*$";
@@ -177,10 +177,12 @@
 		echo "Unauthorized access";
 	}
 	
-?>
+/*
 <form method='post' action='atcad_handler.php'>
 	<input type='text' name='request_category' value='evaluate_request'/>
 	<input type='text' name='device_number' value='DMY_000'/>
 	<input type='text' name='device_tte' value='123456'/>
 	<input type='submit' />
 </form>
+*/
+?>
