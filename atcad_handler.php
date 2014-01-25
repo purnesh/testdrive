@@ -77,7 +77,8 @@
 			if($result){
 				$tr = $result['device_train']."_route";
 				$q = mysql_query("select * from $tr");
-				
+				echo "#Station Code validated*";
+				echo "#Confirmation has been sent to ticket holders*";
 				echo '$';
 				//$cn = $result['cn'];
 				return 1;
@@ -144,6 +145,7 @@
 					echo "#Login Failed*$";
 				}
 				break;
+				
 			case 'ticket_verification':
 				if($handle->device_verification($_POST['device_number'], $_POST['device_tte'])){
 					$res = $handle->ticket_verification($_POST['pnr_number']);

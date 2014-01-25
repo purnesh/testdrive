@@ -418,7 +418,7 @@ class Setup extends CI_Controller{
 				if($station->station_code == $frm){
 					$flag1 = 1;
 				}
-				if($flag1 == 1){
+				if($flag1 == 1 && $flag2!=1){
 					
 					$str = $str."$station->station_code = 0";
 					$str2 = $str2."$station->station_code = 1";
@@ -428,6 +428,7 @@ class Setup extends CI_Controller{
 							$str2 = $str2.", ";
 					}
 					else{
+						$flag2=1;
 						break;
 					}
 				}
@@ -506,16 +507,19 @@ class Setup extends CI_Controller{
 								)");
 		if($create){
 			echo "Reservation Charts OK for $tno \n";
-			$pnr = rand(1000000000, 9999999999);
+			$pnr = ((1000*rand(100, 999))*1000) + ((rand(100, 999))*1000) + rand(100, 999);
 			$this->reserve($pnr, $pname, $age, $email, $tno, $cls, $frm, $to);
 		}
 	}
 	//localhost/testdrive/index.php/setup/passenger_details_inserter/87569/Chair-Car/Purnesh-Tripathi/19/purnesh.xyz@gmail.com/NZE/RYT
-
 	
 	function device_details_updater($device_number, $tted){
 		$a = $this->db->query("update atcad_devices set device_tte = $tted where device_number = $device_number");
 		echo $a;
+	}
+	
+	function evaluater($train, $station_code){
+		
 	}
 }
 ?>
