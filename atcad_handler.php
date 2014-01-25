@@ -78,7 +78,6 @@
 				$tr = $result['device_train']."_route";
 				$q = mysql_query("select * from $tr");
 				echo "#Station Code validated*";
-				echo "#Confirmation has been sent to ticket holders*";
 				echo '$';
 				//$cn = $result['cn'];
 				return 1;
@@ -176,7 +175,7 @@
 	else{
 		echo "Unauthorized access";
 	}
-	
+
 /*
 <form method='post' action='atcad_handler.php'>
 	<input type='text' name='request_category' value='evaluate_request'/>
