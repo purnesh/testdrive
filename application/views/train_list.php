@@ -11,7 +11,7 @@
 			echo "</strong>";
 		?>
 	</div>
- </div>
+</div>
         
 
 <div class="col-md-8" id="data-collector">
@@ -38,3 +38,5 @@ foreach ($a->result() as $row)
 <?php
 		}
 ?>
+</div>
+

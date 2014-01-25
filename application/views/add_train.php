@@ -66,7 +66,7 @@
 	</script>
 </div>
  
-<div class="col-md-10 container">
+<div class="col-md-12 container">
 	<div class="col-md-4">
 		<input type="text" class="form-control train_number" name="train_number" placeholder="Train Number"/>
 		<br />

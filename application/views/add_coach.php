@@ -20,7 +20,7 @@
 		var coach_tte = "DMY_000";
 		$(document).on('click', '.list-group-item.train-entries', function(){
 			train_number = $(this).html();
-			
+			$('.list-group-item.train-entries').removeClass('active');
 			$(this).addClass(' active');
 			$(".form-control.coach_number").slideDown();
 		});
@@ -50,7 +50,7 @@
 	</script>
 </div>
  
-<div class="col-md-10 container"> 
+<div class="col-md-12 container "> 
 	<div class="col-md-2 list-group train-list">
 		<?php 
 			foreach($trains_list->result() as $train){	

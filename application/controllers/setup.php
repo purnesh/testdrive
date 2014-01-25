@@ -251,6 +251,57 @@ class Setup extends CI_Controller{
 							);");
 					}
 					break;
+				
+				case "Waiting-List":
+					for($i=0;$i<=$capacity; $i++){
+						$a = $this->db->query('insert into '.$the_name." (serial_number, seat_type) values(
+								$i, 'Waiting-List'
+								);");
+					}
+					break;
+				
+				case "Sleeper":
+					for($i=1; $i<=$capacity; $i++){
+						$st;
+						switch ($t){
+							case 1:
+								$st = "LB";
+								$t = $t + 1;
+								break;
+							case 2:
+								$st = "MB";
+								$t = $t + 1;
+								break;
+							case 3:
+								$st = "UB";
+								$t = $t + 1;
+								break;
+							case 4:
+								$st = "LB";
+								$t = $t + 1;
+								break;
+							case 5:
+								$st = "MB";
+								$t = $t + 1;
+								break;
+							case 6:
+								$st = "UB";
+								$t = $t + 1;
+								break;
+							case 7:
+								$st = "SL";
+								$t = $t + 1;
+								break;
+							case 8:
+								$st = "SU";
+								$t = $t + 1;
+								break;
+						}
+						$a = $this->db->query('insert into '.$the_name." (serial_number, seat_type) values(
+							$i, '$st'
+							);");
+					}
+					break;
 					
 				case "Engine":
 					for($i=1; $i<=$capacity; $i++){
@@ -401,6 +452,7 @@ class Setup extends CI_Controller{
 			echo $alotted_coach_no. $alotted_seat_no;
 		}
 		else{
+			
 			echo "Waiting List";
 		}
 	}
@@ -408,7 +460,14 @@ class Setup extends CI_Controller{
 	// ----WARNING----
 	//DO NOT USE THIS FUNCTION DIRECTLY - USE WITH passenger_details_inserter
 
-
+	
+	public function destruct_coach($train_number, $coach_number){
+		$tname = $train_number."_aec";
+		$this->db->query("delete from $tname where coach_number=$coach_number");
+		$n = $tname."_".$coach_number."_details";
+		$this->db->query("drop table $n;");
+	}
+	
 	//DO NOT USE THIS FUNCTION DIRECTLY
 	//THE SERVER IS DESIGNED TO USE THIS FUNCTION INTERNALLY
 	public function mailer_daemon($name, $age, $email, $pnr, $tno, $seat, $coach, $frm, $to){
