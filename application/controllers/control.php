@@ -67,7 +67,7 @@ class Control extends CI_Controller{
 		$valid['logged_in'] = FALSE;
 		$this->session->set_userdata($valid);
 		$this->session->sess_destroy();
-		$data['signin_title'] = "Logout ";
+		$data['signin_title'] = "Logout - ATCAD";
 		$data['error'] = "You have been successfully logged out";
 				$this->load->view('signin', $data);
 	}

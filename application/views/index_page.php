@@ -9,10 +9,8 @@
     <meta name="author" content="Purnesh Tripathi & Saurabh Verma">
     <link rel="shortcut icon" href="">
 
-    <title><?=$title; ?></title>
-	<?php
-		
-	?>
+    <title>ATCAD - Texas Instruments</title>
+    
     <link href="<?php echo base_url('content/css/style1.css'); ?>" rel="stylesheet">
 
     <link href="<?php echo base_url('content/css/style2.css'); ?>" rel="stylesheet">
