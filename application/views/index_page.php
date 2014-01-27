@@ -4,9 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+    <meta name="description" content="Automatic Ticket Cancellation And confirmation device is a project developed by Purnesh Tripathi and 
+    Saurabh Verma for participating in Texas Instrument's Innovation Challenge - Analog Design Contest">
+    <meta name="author" content="Purnesh Tripathi & Saurabh Verma">
+    <link rel="shortcut icon" href="">
 
     <title><?=$title; ?></title>
 	<?php
