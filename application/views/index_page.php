@@ -74,7 +74,7 @@
         <h1>ATCAD</h1>
         <p>Automatic Ticket Cancellation And confirmation Device (ATCAD) is the next generation 
         ticket verification and redundancy removal system for <strong>Indian Railways.</strong> </p>
-        <p><a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
+        <p><a href="http://ti-atcad.com/intro.html" class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
       </div>
     </div>
 
