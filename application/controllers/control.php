@@ -63,6 +63,8 @@ class Control extends CI_Controller{
 
 	}
 	
+	
+	
 	public function logout(){
 		$valid['logged_in'] = FALSE;
 		$this->session->set_userdata($valid);

@@ -87,7 +87,7 @@
           similar to Public/Private key Cryptography. Texas Instruments' 
           Microcontroller MSP-430 was used for building the device. This
            device is used to connect to a remote server to authenticate users.</p>
-          <p><a class="btn btn-default" href="#" role="button">Read More &raquo;</a></p>
+          <p><a class="btn btn-default" href=<?php echo base_url('content/pdf/pcbdesign.pdf');?> role="button">Read More &raquo;</a></p>
         </div>
         <div class="col-md-4">
           <h2><span class="glyphicon glyphicon-briefcase intro-text-blocks"></span>Working</h2>
@@ -97,16 +97,16 @@
              alotted to the next available passenger with a waiting 
              ticket on train. The system takes into account number of
               possible scenarios keeping IR in mind.</p>
-          <p><a class="btn btn-default" href="#" role="button">Read More &raquo;</a></p>
+          <p><a class="btn btn-default" href="<?php echo base_url('content/pdf/pcbdesign.pdf');?>" role="button">Read More &raquo;</a></p>
        </div>
         <div class="col-md-4">
           <h2><span class="glyphicon glyphicon-list-alt intro-text-blocks"></span>About Us</h2>
-          <p>Purnesh Tripathi and Saurabh Verma are third year students
+          <p><a href="http://in.linkedin.com/in/purneshtripathi">Purnesh Tripathi</a> and <a http://in.linkedin.com/pub/saurabh-verma/80/900/1a8>Saurabh Verma </a>are third year students
            of College of Technology, G.B.P.U.A.&T. Pantnagar. This is
             the first time that they have collaborated their skills 
             viz. Information Technology & Electrical Engineering 
             respectively, to produce a unique product for the Indian Population.</p>
-          <p><a class="btn btn-default" href="#" role="button">Read More &raquo;</a></p>
+          
         </div>
       </div>
 
