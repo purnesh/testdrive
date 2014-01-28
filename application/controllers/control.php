@@ -73,6 +73,6 @@ class Control extends CI_Controller{
 	}
 }
 
-// yooitsjoshi@rediffmail.com	
+// yooitsjoshi@rediffmail.com
 // 9756214869
 ?>
