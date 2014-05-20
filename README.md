@@ -1,6 +1,8 @@
-Testdrive (info)
+Automatic Ticket Cancellation and Acceptance Device 
 =========
 
+(Repository Name: testdrive) (info)
+---------------------
 This repository was used for development of the project "Automatic Ticket Cancellation and Acceptance Device (ATCAD)". 
 
 
